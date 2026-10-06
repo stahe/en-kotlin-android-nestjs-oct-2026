@@ -697,48 +697,48 @@
 
 <p><span id="chapitre-2-installation-du-serveur-nestjs" name="chapitre-2-installation-du-serveur-nestjs" class="odt-bookmark-anchor"></span></p>
 <h1 id="3-chapter-2-installing-the-nestjs-server">3. <span style="color: #2e74b5">Chapter 2 - Installing the [NestJS] Server</span></h1>
-<p>The <em><mark style="background-color: #fff5ce">[Kotlin]</mark></em> client described in this document requires a server to query: the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server for the <em><mark style="background-color: #fff5ce">[RdvMedecins]</mark></em> application, included with this document in the <em><mark style="background-color: #fff5ce">[rdvmedecins-nestjs-server]</mark></em> folder. Since this document focuses on <em><mark style="background-color: #fff5ce">[Kotlin]</mark></em>, that server is treated as a “black box”: this chapter explains how to install it, configure it, create its <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> database, launch it, and test it, but does not examine its code. Readers who wish to learn about <em><mark style="background-color: #fff5ce">[NestJS] </mark></em>can refer to the document <a href="https://stahe.github.io/typescript-nestjs-sept-2026/"><u><span style="color: #0563c1">“Introduction to the TypeScript Language and the NestJS Framework” (2026)</span></u></a>.</p>
+<p>The <em>[Kotlin]</em> client described in this document requires a server to query: the <em>[NestJS]</em> server for the <em>[RdvMedecins]</em> application, included with this document in the <em>[rdvmedecins-nestjs-server]</em> folder. Since this document focuses on <em>[Kotlin]</em>, that server is treated as a “black box”: this chapter explains how to install it, configure it, create its <em>[MySQL]</em> database, launch it, and test it, but does not examine its code. Readers who wish to learn about <em>[NestJS]</em> can refer to the document <a href="https://stahe.github.io/typescript-nestjs-sept-2026/"><u><span style="color: #0563c1">“Introduction to the TypeScript Language and the NestJS Framework” (2026)</span></u></a>.</p>
 <p>This chapter is an exact replica of Chapter 2 from the course <a href="https://stahe.github.io/flutter-nestjs-sept-2026/"><u><span style="color: #0563c1">“An Example of a Client/Server Application—Flutter / NestJS (2026)</span></u></a>”: the server, its database, and its tests are exactly the same. Readers who have already installed this server for the Flutter course can skip directly to the last section of this chapter, “Running the Kotlin Client for the First Time.”</p>
 <p><span id="installation-de-laragon" name="installation-de-laragon" class="odt-bookmark-anchor"></span></p>
 <h2 id="31-installing-laragon">3.1. <span style="color: #2e74b5">Installing Laragon</span></h2>
-<p>To create the <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> database used by the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server, we’ll use the Laragon tool. As of September 2026, Laragon is available at URL <em><mark style="background-color: #fff5ce">[Download Laragon – Fast &amp; Modern Dev Environment ]</mark></em>. Laragon includes tools that allow you to install a PHP server and the SGBD and <em><mark style="background-color: #fff5ce">[MySQL] servers</mark></em>:</p>
+<p>To create the <em>[MySQL]</em> database used by the <em>[NestJS]</em> server, we’ll use the Laragon tool. As of September 2026, Laragon is available at URL <em>[Download Laragon – Fast &amp; Modern Dev Environment ]</em>. Laragon includes tools that allow you to install a PHP server and the SGBD and <em>[MySQL] servers</em>:</p>
 <p><img src="images/10000000000006440000030C86481A8B.png" width="643" height="312" style="width:17cm;height:8.266cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C86481A8B.png" /></p>
 <ul>
 <li>in [1], an Apache web server;</li>
-<li>into [2], the SGBD and <em><mark style="background-color: #fff5ce">[MySQL]</mark></em>;</li>
+<li>into [2], the SGBD and <em>[MySQL]</em>;</li>
 <li>to [3], a messaging tool that we will not be using;</li>
-<li>[4] starts all services (Apache, <em><mark style="background-color: #fff5ce">[MySQL]</mark></em>, MailPit);</li>
-<li>[5] displays the web page for URL <em><mark style="background-color: #fff5ce">[http://localhost]</mark></em>. By default, this URL refers to the &lt;laragon-install&gt;\www folder, where &lt;laragon-install&gt; is the Laragon installation folder;</li>
-<li>in [6], launches the HeidiSQL tool, which allows you to manage MySQL databases. We will use this tool to create the database used by the <em><mark style="background-color: #fff5ce">[RdvMedecins]</mark></em> server;</li>
+<li>[4] starts all services (Apache, <em>[MySQL]</em>, MailPit);</li>
+<li>[5] displays the web page for URL <em>[http://localhost]</em>. By default, this URL refers to the &lt;laragon-install&gt;\www folder, where &lt;laragon-install&gt; is the Laragon installation folder;</li>
+<li>in [6], launches the HeidiSQL tool, which allows you to manage MySQL databases. We will use this tool to create the database used by the <em>[RdvMedecins]</em> server;</li>
 <li>In [7], open a terminal where all the binaries needed for Laragon are located in PATH;</li>
-<li>In [8], open Windows File Explorer to the folder associated with URL and <em><mark style="background-color: #fff5ce">[http://localhost]</mark></em>;</li>
+<li>In [8], open Windows File Explorer to the folder associated with URL and <em>[http://localhost]</em>;</li>
 </ul>
 <p>The Laragon installation folder contains the following items:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002DB00000324CA05B23E.png" width="314" height="345" style="display:inline-block; margin:4px;width:8.306cm;height:9.133cm;" class="odt-zoomable" data-zoom-src="images/10000000000002DB00000324CA05B23E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
 <ul>
-<li>In [1], the <em><mark style="background-color: #fff5ce">[bin]</mark></em> folder contains numerous applications:</li>
+<li>In [1], the <em>[bin]</em> folder contains numerous applications:</li>
 </ul>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000329000004CE02139058.png" width="404" height="615" style="display:inline-block; margin:4px;width:10.7cm;height:16.27cm;" class="odt-zoomable" data-zoom-src="images/1000000000000329000004CE02139058.png" /></td></tr></table>
 
 <ul>
 <li>In [1], the Apache web server;</li>
 <li>in [2], a command-line terminal;</li>
-<li>[3], a client (<em><mark style="background-color: #fff5ce">[git]) </mark></em>that allows you to manage different versions of a project;</li>
+<li>[3], a client (<em>[git])</em> that allows you to manage different versions of a project;</li>
 <li>[4], a database manager;</li>
 <li>[5], a mail manager;</li>
-<li>[6], SGBD, and <em><mark style="background-color: #fff5ce">[MySQL]</mark></em>;</li>
+<li>[6], SGBD, and <em>[MySQL]</em>;</li>
 <li>[7], another web server;</li>
-<li>in [8], <em><mark style="background-color: #fff5ce">[node.js] </mark></em>to run JavaScript scripts;</li>
+<li>in [8], <em>[node.js]</em> to run JavaScript scripts;</li>
 <li>[9], a text editor;</li>
 <li>[10], the PHP interpreter;</li>
-<li>[11], the <em><mark style="background-color: #fff5ce">[Python]</mark></em> interpreter;</li>
+<li>[11], the <em>[Python]</em> interpreter;</li>
 <li>[12], a cache server;</li>
 </ul>
-<p>Laragon comes with a comprehensive development environment. In this course, we will use only SGBD, <em><mark style="background-color: #fff5ce">[MySQL], </mark></em>[6], and the <em><mark style="background-color: #fff5ce">[heidisql] </mark></em>tool to manage it graphically;</p>
+<p>Laragon comes with a comprehensive development environment. In this course, we will use only SGBD, <em>[MySQL],</em> [6], and the <em>[heidisql]</em> tool to manage it graphically;</p>
 <p><span id="installation-et-configuration-du-serveur-nestjs" name="installation-et-configuration-du-serveur-nestjs" class="odt-bookmark-anchor"></span></p>
 <h2 id="32-installation-and-configuration-of-the-nestjs-server">3.2. <span style="color: #2e74b5">Installation and Configuration of the [NestJS] Server</span></h2>
-<p>The <em><mark style="background-color: #fff5ce">[rdvmedecins-nestjs-server]</mark></em> folder has the following directory structure:</p>
+<p>The <em>[rdvmedecins-nestjs-server]</em> folder has the following directory structure:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -773,13 +773,13 @@
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>    ├── web/                      # JSON controller and response templates
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>    └── auth/                     # JWT authentication and roles
 </code></pre></div></td></tr></table></div>
-<p>Each subfolder of <em><mark style="background-color: #fff5ce">[src/] </mark></em>contains its own <em><mark style="background-color: #fff5ce">[README.md] file</mark></em>, which summarizes the purpose of the files it contains. The source code for these files is not covered in this document.</p>
-<p>In the <em><mark style="background-color: #fff5ce">[rdvmedecins-nestjs-server]</mark></em> folder, type the following commands in a terminal:</p>
+<p>Each subfolder of <em>[src/]</em> contains its own <em>[README.md] file</em>, which summarizes the purpose of the files it contains. The source code for these files is not covered in this document.</p>
+<p>In the <em>[rdvmedecins-nestjs-server]</em> folder, type the following commands in a terminal:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>npm install
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a>cp .env.example .env
 </code></pre></div></td></tr></table></div>
-<p>The <em><mark style="background-color: #fff5ce">[.env]</mark></em> file sets environment variables:</p>
+<p>The <em>[.env]</em> file sets environment variables:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -809,41 +809,41 @@
 <span class="normal"><a href="#__codelineno-2-27">27</a></span>
 <span class="normal"><a href="#__codelineno-2-28">28</a></span>
 <span class="normal"><a href="#__codelineno-2-29">29</a></span>
-<span class="normal"><a href="#__codelineno-2-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="o">#</span><span class="w"> </span><span class="c1">-----------------------------------------------------------------------</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="o">#</span><span class="w"> </span><span class="n">Sample</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="p">.</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="o">#</span><span class="w"> </span><span class="k">Copy</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">[.</span><span class="n">env</span><span class="p">],</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">adjust</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="o">#</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="p">[.</span><span class="n">env</span><span class="p">]</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">never</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">committed</span><span class="w"> </span><span class="p">(</span><span class="n">passwords</span><span class="p">).</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="o">#</span><span class="w"> </span><span class="c1">-----------------------------------------------------------------------</span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># -----------------------------------------------------------------------</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># Sample configuration file.</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Copy this file to [.env], then adjust the values for your machine.</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># The [.env] file must never be shared or committed (passwords).</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1"># -----------------------------------------------------------------------</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="o">#</span><span class="w"> </span><span class="n">listening</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">NestJS</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="p">(</span><span class="n">the</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="n">Spring</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">listened</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="mi">8080</span><span class="p">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">PORT</span><span class="o">=</span><span class="mi">8080</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># listening port for the NestJS server (the original Spring server listened on port 8080)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="na">PORT</span><span class="o">=</span><span class="s">8080</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="o">#</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="k">connection</span><span class="w"> </span><span class="k">parameters</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="p">[</span><span class="n">dbrdvmedecins</span><span class="p">]</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">DB_HOST</span><span class="o">=</span><span class="n">localhost</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="n">DB_PORT</span><span class="o">=</span><span class="mi">3306</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">DB_USERNAME</span><span class="o">=</span><span class="n">root</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">DB_PASSWORD</span><span class="o">=</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="n">DB_DATABASE</span><span class="o">=</span><span class="n">dbrdvmedecins</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># database connection parameters MySQL [dbrdvmedecins]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="na">DB_HOST</span><span class="o">=</span><span class="s">localhost</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="na">DB_PORT</span><span class="o">=</span><span class="s">3306</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="na">DB_USERNAME</span><span class="o">=</span><span class="s">root</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="na">DB_PASSWORD</span><span class="o">=</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="na">DB_DATABASE</span><span class="o">=</span><span class="s">dbrdvmedecins</span>
 <a id="__codelineno-2-16" name="__codelineno-2-16"></a>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="o">#</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">development</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">TypeORM</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="k">create</span><span class="o">/</span><span class="k">update</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="o">#</span><span class="w"> </span><span class="n">tables</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">entities</span><span class="p">.</span><span class="w"> </span><span class="n">We</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">our</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="o">#</span><span class="w"> </span><span class="n">own</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="k">SQL</span><span class="w"> </span><span class="p">[</span><span class="k">database</span><span class="o">/</span><span class="n">dbrdvmedecins</span><span class="p">.</span><span class="k">sql</span><span class="p">],</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="n">Spring</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="n">did</span><span class="p">.</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="n">DB_SYNCHRONIZE</span><span class="o">=</span><span class="k">false</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="c1"># for development only: TypeORM can automatically create/update</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="c1"># tables from entities. We disable this here because we provide our</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="c1"># own script SQL [database/dbrdvmedecins.sql], just as the original Spring project did.</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="na">DB_SYNCHRONIZE</span><span class="o">=</span><span class="s">false</span>
 <a id="__codelineno-2-21" name="__codelineno-2-21"></a>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="o">#</span><span class="w"> </span><span class="c1">-----------------------------------------------------------------------</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="o">#</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="p">(</span><span class="n">see</span><span class="w"> </span><span class="n">src</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="p">)</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="o">#</span><span class="w"> </span><span class="c1">-----------------------------------------------------------------------</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="o">#</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">sign</span><span class="o">/</span><span class="n">verify</span><span class="w"> </span><span class="n">tokens</span><span class="w"> </span><span class="n">JWT</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">changed</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="o">#</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">production</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">never</span><span class="w"> </span><span class="k">committed</span><span class="p">).</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="n">JWT_SECRET</span><span class="o">=</span><span class="n">change</span><span class="o">-</span><span class="n">moi</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">une</span><span class="o">-</span><span class="n">longue</span><span class="o">-</span><span class="n">chaine</span><span class="o">-</span><span class="n">aleatoire</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="o">#</span><span class="w"> </span><span class="n">validity</span><span class="w"> </span><span class="k">period</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">JWT</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="p">(</span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="p">[</span><span class="n">ms</span><span class="p">]</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">documentation</span><span class="p">:</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="o">#</span><span class="w"> </span><span class="ss">"60"</span><span class="p">,</span><span class="w"> </span><span class="ss">"2h"</span><span class="p">,</span><span class="w"> </span><span class="ss">"7d"</span><span class="p">...)</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="n">JWT_EXPIRES_IN</span><span class="o">=</span><span class="mi">2</span><span class="n">h</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="c1"># -----------------------------------------------------------------------</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="c1"># authentication (see src/auth/)</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="c1"># -----------------------------------------------------------------------</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="c1"># secret key used to sign/verify tokens JWT - to be changed</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="c1"># must be changed in production (a long random string, never committed).</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="na">JWT_SECRET</span><span class="o">=</span><span class="s">change-moi-en-une-longue-chaine-aleatoire</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="c1"># validity period of a JWT token (see the [ms] library documentation:</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="c1"># "60", "2h", "7d"...)</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="na">JWT_EXPIRES_IN</span><span class="o">=</span><span class="s">2h</span>
 </code></pre></div></td></tr></table></div>
-<p>Customize the newly created <em><mark style="background-color: #fff5ce">[.env]</mark></em> file to match your <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> installation (username, password, port). Since authentication was added, this file also contains a key named JWT_SECRET: the example value is suitable for following this document, but must be replaced with a random string unique to you before any actual use.</p>
+<p>Customize the newly created <em>[.env]</em> file to match your <em>[MySQL]</em> installation (username, password, port). Since authentication was added, this file also contains a key named JWT_SECRET: the example value is suitable for following this document, but must be replaced with a random string unique to you before any actual use.</p>
 <p><span id="creation-de-la-base-de-donnees" name="creation-de-la-base-de-donnees" class="odt-bookmark-anchor"></span></p>
 <h2 id="33-creating-the-database">3.3. <span style="color: #2e74b5">Creating the Database</span></h2>
-<p>The <em><mark style="background-color: #fff5ce">[dbrdvmedecins]</mark></em> database mirrors the structure of the original document (2014, Spring 4 / <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> 5): same tables—<em><mark style="background-color: #fff5ce">[medecins]</mark></em>, <em><mark style="background-color: #fff5ce">[clients]</mark></em>, <em><mark style="background-color: #fff5ce">[creneaux]</mark></em>, <em><mark style="background-color: #fff5ce">[rv]</mark></em>—same foreign keys, same uniqueness constraint. The only new addition, introduced by the “authentication” step of this port: the table <em><mark style="background-color: #fff5ce">[users]</mark></em>. The relationships between these tables are as follows: a doctor (<em><mark style="background-color: #fff5ce">[medecins]</mark></em>) has several time slots (<em><mark style="background-color: #fff5ce">[creneaux]</mark></em>, foreign key <em><mark style="background-color: #fff5ce">[id_medecin]</mark></em>); an appointment (<em><mark style="background-color: #fff5ce">[rv]</mark></em>) links a day, a time slot (and thus a doctor), and a client (<em><mark style="background-color: #fff5ce">[clients]</mark></em>); the table <em><mark style="background-color: #fff5ce">[users] </mark></em>is independent of the other four: it is used solely for authentication.</p>
+<p>The <em>[dbrdvmedecins]</em> database mirrors the structure of the original document (2014, Spring 4 / <em>[MySQL]</em> 5): same tables—<em>[medecins]</em>, <em>[clients]</em>, <em>[creneaux]</em>, <em>[rv]</em>—same foreign keys, same uniqueness constraint. The only new addition, introduced by the “authentication” step of this port: the table <em>[users]</em>. The relationships between these tables are as follows: a doctor (<em>[medecins]</em>) has several time slots (<em>[creneaux]</em>, foreign key <em>[id_medecin]</em>); an appointment (<em>[rv]</em>) links a day, a time slot (and thus a doctor), and a client (<em>[clients]</em>); the table <em>[users]</em> is independent of the other four: it is used solely for authentication.</p>
 <p><span id="databasedbrdvmedecinssql" name="databasedbrdvmedecinssql" class="odt-bookmark-anchor"></span></p>
 <h3 id="331-databasedbrdvmedecinssql">3.3.1. <span style="color: #1f4d78">[database/dbrdvmedecins.sql]</span></h3>
 <p><img src="images/1000000000000280000002CD4391708B.png" width="320" height="359" style="width:8.467cm;height:9.486cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000280000002CD4391708B.png" /></p>
@@ -1111,23 +1111,23 @@
 </code></pre></div></td></tr></table></div>
 <p>Let’s break down this code:</p>
 <ul>
-<li>Lines 20–21: <strong><em><mark style="background-color: #fff5ce">[CREATE DATABASE IF NOT EXISTS dbrdvmedecins …] </mark></em></strong>followed by <strong><em><mark style="background-color: #fff5ce">[USE dbrdvmedecins]</mark></em></strong>—creates the database if it does not yet exist (character set <em><mark style="background-color: #fff5ce">[utf8mb4]</mark></em>, which supports all Unicode characters, including accents), then selects it: all subsequent instructions apply to it. These two lines must absolutely come before EN and PREMIER: if executed after <strong><em><mark style="background-color: #fff5ce">[DROP TABLE …]</mark></em></strong>, they would fail because no database is selected (error <em><mark style="background-color: #fff5ce">[No database selected]</mark></em>);</li>
-<li>Lines 24–28: <strong><em><mark style="background-color: #fff5ce">[DROP TABLE IF EXISTS …] </mark></em></strong>— the script starts from an empty database on each execution, in the reverse order of dependencies (starting with <code>rv</code>, which references <code>*[creneaux]</code> <em>and <code>clients</code>, down to <code>users</code>, which is not referenced by anyone): </em><mark style="background-color: #fff5ce">[MySQL] </mark>*would refuse to drop a table that is still referenced by a foreign key;</li>
-<li>Line 58: <strong><em><mark style="background-color: #fff5ce">[id_medecin INT NOT NULL], </mark></em></strong>then line 63: <strong><em><mark style="background-color: #fff5ce">[CONSTRAINT fk_creneaux_medecin FOREIGN KEY …] </mark></em></strong>— a time slot always belongs to a doctor;</li>
-<li>line 78: <strong><em><mark style="background-color: #fff5ce">[CONSTRAINT unq1_rv UNIQUE (jour, id_creneau)] </mark></em></strong>— the application’s central business rule: a single time slot on a given day can be booked only once. It is this constraint, and this constraint alone, that prevents a double booking—neither the validator nor the business logic layer explicitly rechecks it;</li>
-<li>lines 84–91: <strong><em><mark style="background-color: #fff5ce">[CREATE TABLE users (…)] </mark></em></strong>— the table added by this step. <code>login</code> is UNIQUE (two users cannot share the same login ID); <code>password</code> stores a password <strong>hashed</strong> using bcrypt (never in plaintext); role is either &#x27;ADMIN&#x27; or &#x27;USER&#x27;—a single text column, whereas the original document used three tables (users, roles, users_roles) to allow multiple roles per user. Since this application requires only two mutually exclusive roles, the original many-to-many relationship would have been more than necessary;</li>
-<li>lines 129–131: <strong><em><mark style="background-color: #fff5ce">[INSERT INTO users …] </mark></em></strong>— two demo accounts, admin/admin (role ADMIN) and user/user (role USER), with their passwords already hashed using bcrypt (10 rounds of salting)—never in plaintext, including in this demo script.</li>
+<li>Lines 20–21: <strong><em>[CREATE DATABASE IF NOT EXISTS dbrdvmedecins …]</em></strong> followed by <strong><em>[USE dbrdvmedecins]</em></strong>—creates the database if it does not yet exist (character set <em>[utf8mb4]</em>, which supports all Unicode characters, including accents), then selects it: all subsequent instructions apply to it. These two lines must absolutely come before EN and PREMIER: if executed after <strong><em>[DROP TABLE …]</em></strong>, they would fail because no database is selected (error <em>[No database selected]</em>);</li>
+<li>Lines 24–28: <strong><em>[DROP TABLE IF EXISTS …]</em></strong> — the script starts from an empty database on each execution, in the reverse order of dependencies (starting with <code>rv</code>, which references <code>*[creneaux]</code><em> and <code>clients</code>, down to <code>users</code>, which is not referenced by anyone): </em>[MySQL]* would refuse to drop a table that is still referenced by a foreign key;</li>
+<li>Line 58: <strong><em>[id_medecin INT NOT NULL],</em></strong> then line 63: <strong><em>[CONSTRAINT fk_creneaux_medecin FOREIGN KEY …]</em></strong> — a time slot always belongs to a doctor;</li>
+<li>line 78: <strong><em>[CONSTRAINT unq1_rv UNIQUE (jour, id_creneau)]</em></strong> — the application’s central business rule: a single time slot on a given day can be booked only once. It is this constraint, and this constraint alone, that prevents a double booking—neither the validator nor the business logic layer explicitly rechecks it;</li>
+<li>lines 84–91: <strong><em>[CREATE TABLE users (…)]</em></strong> — the table added by this step. <code>login</code> is UNIQUE (two users cannot share the same login ID); <code>password</code> stores a password <strong>hashed</strong> using bcrypt (never in plaintext); role is either &#x27;ADMIN&#x27; or &#x27;USER&#x27;—a single text column, whereas the original document used three tables (users, roles, users_roles) to allow multiple roles per user. Since this application requires only two mutually exclusive roles, the original many-to-many relationship would have been more than necessary;</li>
+<li>lines 129–131: <strong><em>[INSERT INTO users …]</em></strong> — two demo accounts, admin/admin (role ADMIN) and user/user (role USER), with their passwords already hashed using bcrypt (10 rounds of salting)—never in plaintext, including in this demo script.</li>
 </ul>
 <p><span id="execution-du-script-avec-heidisql" name="execution-du-script-avec-heidisql" class="odt-bookmark-anchor"></span></p>
 <h3 id="332-running-the-script-with-heidisql">3.3.2. <span style="color: #1f4d78">Running the script with HeidiSQL</span></h3>
-<p>To create the <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> database required by the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server, we proceed as follows:</p>
+<p>To create the <em>[MySQL]</em> database required by the <em>[NestJS]</em> server, we proceed as follows:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006440000030C352A3F89.png" width="503" height="244" style="display:inline-block; margin:4px;width:13.301cm;height:6.468cm;" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C352A3F89.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
 <ul>
 <li>In [1], all services must be started;</li>
-<li>in [2], the <em><mark style="background-color: #fff5ce">[Database]</mark></em> option allows you to manage the database;</li>
+<li>in [2], the <em>[Database]</em> option allows you to manage the database;</li>
 </ul>
-<p>The option <em><mark style="background-color: #fff5ce">[Database] </mark></em>launches a utility called HeidiSQL:</p>
+<p>The option <em>[Database]</em> launches a utility called HeidiSQL:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000008D2000003C91FBD37B4.png" width="621" height="266" style="display:inline-block; margin:4px;width:16.431cm;height:7.05cm;" class="odt-zoomable" data-zoom-src="images/10000000000008D2000003C91FBD37B4.png" /></td></tr></table>
 
 <ul>
@@ -1137,69 +1137,69 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003FD0000018A35CBA47C.png" width="357" height="138" style="display:inline-block; margin:4px;width:9.449cm;height:3.649cm;" class="odt-zoomable" data-zoom-src="images/10000000000003FD0000018A35CBA47C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002A4000001C70316A390.png" width="237" height="159" style="display:inline-block; margin:4px;width:6.26cm;height:4.21cm;" class="odt-zoomable" data-zoom-src="images/10000000000002A4000001C70316A390.png" /></td></tr></table>
 
 <ul>
-<li>In [1-2], run the SQL file, then select the <em><mark style="background-color: #fff5ce">[dbrdvmedecins.sql]</mark></em> file, which you’ll find in the <em><mark style="background-color: #fff5ce">[rdvmedecins-nestjs-server/database]</mark></em> folder:</li>
+<li>In [1-2], run the SQL file, then select the <em>[dbrdvmedecins.sql]</em> file, which you’ll find in the <em>[rdvmedecins-nestjs-server/database]</em> folder:</li>
 </ul>
 <p><img src="images/10000000000001CA000002F2946B0D5A.png" width="198" height="324" style="width:5.226cm;height:8.58cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001CA000002F2946B0D5A.png" /></p>
-<p>Running the [3] file will create the <em><mark style="background-color: #fff5ce">[dbrdvmedecins]</mark></em> database used by the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server. To view it, run F5 within HeidiSQL to refresh the display:</p>
+<p>Running the [3] file will create the <em>[dbrdvmedecins]</em> database used by the <em>[NestJS]</em> server. To view it, run F5 within HeidiSQL to refresh the display:</p>
 <p><img src="images/10000000000002A50000031EFB250513.png" width="213" height="250" style="width:5.639cm;height:6.609cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002A50000031EFB250513.png" /></p>
-<p>The database <em><mark style="background-color: #fff5ce">[dbrdvmedecins] </mark></em>has been created. You can view its contents:</p>
+<p>The database <em>[dbrdvmedecins]</em> has been created. You can view its contents:</p>
 <p><img src="images/100000000000053F00000271DC17B512.png" width="602" height="280" style="width:15.921cm;height:7.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000053F00000271DC17B512.png" /></p>
 <ul>
-<li>In [1-3], the table <em><mark style="background-color: #fff5ce">[clients]</mark></em>;<ul>
-<li><em><mark style="background-color: #fff5ce">[id] </mark></em>is the primary key of the table;</li>
-<li><em><mark style="background-color: #fff5ce">[version] </mark></em>is the row’s version number. This number increments each time the row is modified;</li>
-<li><em><mark style="background-color: #fff5ce">[titre, nom, prenom] </mark></em>identifies the person;</li>
+<li>In [1-3], the table <em>[clients]</em>;<ul>
+<li><em>[id]</em> is the primary key of the table;</li>
+<li><em>[version]</em> is the row’s version number. This number increments each time the row is modified;</li>
+<li><em>[titre, nom, prenom]</em> identifies the person;</li>
 </ul>
 </li>
 </ul>
 <p><img src="images/100000000000052A0000026BD3179386.png" width="602" height="282" style="width:15.921cm;height:7.454cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052A0000026BD3179386.png" /></p>
 <ul>
-<li>in [1-3], the table <em><mark style="background-color: #fff5ce">[medecins]</mark></em>;<ul>
-<li><em><mark style="background-color: #fff5ce">[id] </mark></em>is the primary key of the table;</li>
-<li><em><mark style="background-color: #fff5ce">[version] </mark></em>is the version number of the row;</li>
-<li><em><mark style="background-color: #fff5ce">[titre, nom, prenom] </mark></em>identifies the person;</li>
+<li>in [1-3], the table <em>[medecins]</em>;<ul>
+<li><em>[id]</em> is the primary key of the table;</li>
+<li><em>[version]</em> is the version number of the row;</li>
+<li><em>[titre, nom, prenom]</em> identifies the person;</li>
 </ul>
 </li>
 </ul>
 <p><img src="images/10000000000005FE000002C6FB6943F4.png" width="602" height="278" style="width:15.921cm;height:7.368cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005FE000002C6FB6943F4.png" /></p>
 <ul>
 <li>In [1-3], the table of doctors’ appointment time slots:<ul>
-<li><em><mark style="background-color: #fff5ce">[id]</mark></em>: primary key;</li>
-<li><em><mark style="background-color: #fff5ce">[version]</mark></em>: row version number;</li>
-<li><em><mark style="background-color: #fff5ce">[id-medecin]</mark></em>: foreign key referencing the doctor’s primary key;</li>
-<li><em><mark style="background-color: #fff5ce">[hdebut, mdebut]</mark></em>: hour and minutes of the appointment start time. Thus, <em><mark style="background-color: #fff5ce">[8,20] </mark></em>means 8:20 a.m.</li>
-<li><em><mark style="background-color: #fff5ce">[hfin, mfin]</mark></em>: hour and minutes of the end of the consultation. </li>
+<li><em>[id]</em>: primary key;</li>
+<li><em>[version]</em>: row version number;</li>
+<li><em>[id-medecin]</em>: foreign key referencing the doctor’s primary key;</li>
+<li><em>[hdebut, mdebut]</em>: hour and minutes of the appointment start time. Thus, <em>[8,20]</em> means 8:20 a.m.</li>
+<li><em>[hfin, mfin]</em>: hour and minutes of the end of the consultation. </li>
 </ul>
 </li>
 </ul>
 <p><img src="images/10000000000005EB0000024E23D6EF19.png" width="602" height="234" style="width:15.921cm;height:6.198cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005EB0000024E23D6EF19.png" /></p>
 <ul>
-<li>In [1-3], the <em><mark style="background-color: #fff5ce">[rv]</mark></em> table of scheduled appointments;<ul>
-<li><em><mark style="background-color: #fff5ce">[id]</mark></em>: primary key;</li>
-<li><em><mark style="background-color: #fff5ce">[version]</mark></em>: version number;</li>
-<li><em><mark style="background-color: #fff5ce">[jour]</mark></em>: appointment date;</li>
-<li><em><mark style="background-color: #fff5ce">[id_creneau]</mark></em>: foreign key referencing the primary key of the appointment time slot. Since a time slot is linked to a doctor, we know which doctor is handling this appointment;</li>
-<li><em><mark style="background-color: #fff5ce">[id_client]</mark></em>: foreign key to the number (primary key) of the customer making the inquiry;</li>
+<li>In [1-3], the <em>[rv]</em> table of scheduled appointments;<ul>
+<li><em>[id]</em>: primary key;</li>
+<li><em>[version]</em>: version number;</li>
+<li><em>[jour]</em>: appointment date;</li>
+<li><em>[id_creneau]</em>: foreign key referencing the primary key of the appointment time slot. Since a time slot is linked to a doctor, we know which doctor is handling this appointment;</li>
+<li><em>[id_client]</em>: foreign key to the number (primary key) of the customer making the inquiry;</li>
 </ul>
 </li>
 </ul>
 <p><img src="images/100000000000066300000266A61EA136.png" width="602" height="226" style="width:15.921cm;height:5.978cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000066300000266A61EA136.png" /></p>
 <ul>
-<li>in [1-3], the table <em><mark style="background-color: #fff5ce">[users], </mark></em>which lists the users authorized to use the application <em><mark style="background-color: #fff5ce">[NestJS]</mark></em>;<ul>
-<li><em><mark style="background-color: #fff5ce">[id, version]</mark></em>: primary key, version number;</li>
-<li><em><mark style="background-color: #fff5ce">[login, password]</mark></em>: user credentials;</li>
-<li><em><mark style="background-color: #fff5ce">[nom]</mark></em>: user name;</li>
-<li><em><mark style="background-color: #fff5ce">[role]</mark></em>: the user’s role. <em><mark style="background-color: #fff5ce">[ADMIN] </mark></em>has full access. <em><mark style="background-color: #fff5ce">[USER] </mark></em>has read-only access. This user can view a doctor’s schedule but cannot schedule or cancel an appointment;</li>
+<li>in [1-3], the table <em>[users],</em> which lists the users authorized to use the application <em>[NestJS]</em>;<ul>
+<li><em>[id, version]</em>: primary key, version number;</li>
+<li><em>[login, password]</em>: user credentials;</li>
+<li><em>[nom]</em>: user name;</li>
+<li><em>[role]</em>: the user’s role. <em>[ADMIN]</em> has full access. <em>[USER]</em> has read-only access. This user can view a doctor’s schedule but cannot schedule or cancel an appointment;</li>
 </ul>
 </li>
 </ul>
 <p><span id="lancement-du-serveur-nestjs" name="lancement-du-serveur-nestjs" class="odt-bookmark-anchor"></span></p>
 <h2 id="34-starting-the-nestjs-server">3.4. <span style="color: #2e74b5">Starting the [NestJS] server</span></h2>
-<p>Start all Laragon services (<em><mark style="background-color: #fff5ce">[Start All]</mark></em>), if you haven’t already. Then start the NestJS server in a VSCode terminal for the NestJS project:</p>
+<p>Start all Laragon services (<em>[Start All]</em>), if you haven’t already. Then start the NestJS server in a VSCode terminal for the NestJS project:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm install
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>npm run start:dev
 </code></pre></div>
-<p>The console displays, in order: the startup of the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> module, the list of routes exposed by the controller, and then confirmation of startup:</p>
+<p>The console displays, in order: the startup of the <em>[NestJS]</em> module, the list of routes exposed by the controller, and then confirmation of startup:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -1215,28 +1215,28 @@
 <span class="normal"><a href="#__codelineno-5-13">13</a></span>
 <span class="normal"><a href="#__codelineno-5-14">14</a></span>
 <span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RoutesResolver</span><span class="w"> </span><span class="n">AuthController</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="p">}:</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">login</span><span class="p">,</span><span class="w"> </span><span class="n">POST</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RoutesResolver</span><span class="w"> </span><span class="n">RdvMedecinsController</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="p">}:</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">getAllMedecins</span><span class="p">,</span><span class="w"> </span><span class="n">GET</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">getAllClients</span><span class="p">,</span><span class="w"> </span><span class="n">GET</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">getAllCreneaux</span><span class="o">/</span><span class="p">:</span><span class="n">idMedecin</span><span class="p">,</span><span class="w"> </span><span class="n">GET</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">getRvMedecinJour</span><span class="o">/</span><span class="p">:</span><span class="n">idMedecin</span><span class="o">/</span><span class="p">:</span><span class="n">jour</span><span class="p">,</span><span class="w"> </span><span class="n">GET</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">getAgendaMedecinJour</span><span class="o">/</span><span class="p">:</span><span class="n">idMedecin</span><span class="o">/</span><span class="p">:</span><span class="n">jour</span><span class="p">,</span><span class="w"> </span><span class="n">GET</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">getMedecinById</span><span class="o">/</span><span class="p">:</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">GET</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">getClientById</span><span class="o">/</span><span class="p">:</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">GET</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">getCreneauById</span><span class="o">/</span><span class="p">:</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">GET</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">getRvById</span><span class="o">/</span><span class="p">:</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">GET</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">ajouterRv</span><span class="p">,</span><span class="w"> </span><span class="n">POST</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">RouterExplorer</span><span class="w"> </span><span class="n">Mapped</span><span class="w"> </span><span class="p">{</span><span class="o">/</span><span class="n">supprimerRv</span><span class="p">,</span><span class="w"> </span><span class="n">POST</span><span class="p">}</span><span class="w"> </span><span class="n">route</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="o">[</span><span class="n">Nest</span><span class="o">]</span><span class="w"> </span><span class="n">NestApplication</span><span class="w"> </span><span class="n">Nest</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">started</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="o">[</span><span class="n">RdvMedecins</span><span class="o">]</span><span class="w"> </span><span class="n">serveur</span><span class="w"> </span><span class="n">NestJS</span><span class="w"> </span><span class="n">démarré</span><span class="w"> </span><span class="n">sur</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="c1">//localhost:8080</span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>[Nest] RoutesResolver AuthController {/}:
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>[Nest] RouterExplorer Mapped {/login, POST} route
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>[Nest] RoutesResolver RdvMedecinsController {/}:
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>[Nest] RouterExplorer Mapped {/getAllMedecins, GET} route
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>[Nest] RouterExplorer Mapped {/getAllClients, GET} route
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>[Nest] RouterExplorer Mapped {/getAllCreneaux/:idMedecin, GET} route
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>[Nest] RouterExplorer Mapped {/getRvMedecinJour/:idMedecin/:jour, GET} route
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>[Nest] RouterExplorer Mapped {/getAgendaMedecinJour/:idMedecin/:jour, GET} route
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>[Nest] RouterExplorer Mapped {/getMedecinById/:id, GET} route
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>[Nest] RouterExplorer Mapped {/getClientById/:id, GET} route
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>[Nest] RouterExplorer Mapped {/getCreneauById/:id, GET} route
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>[Nest] RouterExplorer Mapped {/getRvById/:id, GET} route
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>[Nest] RouterExplorer Mapped {/ajouterRv, POST} route
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>[Nest] RouterExplorer Mapped {/supprimerRv, POST} route
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>[Nest] NestApplication Nest application successfully started
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>[RdvMedecins] serveur NestJS démarré sur http://localhost:8080
 </code></pre></div></td></tr></table></div>
 <p>This console output confirms that the server is indeed listening on port 8080—<strong>exactly the same port as the Spring Boot server in the original document</strong>, which was deliberately chosen for this reason.</p>
-<p>These routes constitute the API and JSON that the client <em><mark style="background-color: #fff5ce">[Kotlin] </mark></em>will consume in Chapter 4. <em><mark style="background-color: #fff5ce">[POST /login] </mark></em>is the only public route: it returns a token (JWT) that all other routes require in the header (<em><mark style="background-color: #fff5ce">[Authorization: Bearer &lt;jeton&gt;]</mark></em>). The read-only routes (<em><mark style="background-color: #fff5ce">[GET …]</mark></em>) are accessible to the roles ADMIN and USER; the two routes that modify data, <em><mark style="background-color: #fff5ce">[POST /ajouterRv] </mark></em>and <em><mark style="background-color: #fff5ce">[POST /supprimerRv]</mark></em>, are reserved for the ADMIN role. Business responses are wrapped in a <em><mark style="background-color: #fff5ce">[{ status, data }]</mark></em> object, where <em><mark style="background-color: #fff5ce">[status] </mark></em>is set to 0 if the operation is successful.</p>
+<p>These routes constitute the API and JSON that the client <em>[Kotlin]</em> will consume in Chapter 4. <em>[POST /login]</em> is the only public route: it returns a token (JWT) that all other routes require in the header (<em>[Authorization: Bearer &lt;jeton&gt;]</em>). The read-only routes (<em>[GET …]</em>) are accessible to the roles ADMIN and USER; the two routes that modify data, <em>[POST /ajouterRv]</em> and <em>[POST /supprimerRv]</em>, are reserved for the ADMIN role. Business responses are wrapped in a <em>[{ status, data }]</em> object, where <em>[status]</em> is set to 0 if the operation is successful.</p>
 <p><span id="tester-le-serveur-avec-un-navigateur" name="tester-le-serveur-avec-un-navigateur" class="odt-bookmark-anchor"></span></p>
 <h2 id="35-test-the-server-with-a-browser">3.5. <span style="color: #2e74b5">Test the server with a browser</span></h2>
-<p>Since authentication was added, <strong>all</strong> routes under <em><mark style="background-color: #fff5ce">[RdvMedecinsController] </mark></em>require a valid JWT token; therefore, a browser alone can no longer be used to test them directly. For example:</p>
+<p>Since authentication was added, <strong>all</strong> routes under <em>[RdvMedecinsController]</em> require a valid JWT token; therefore, a browser alone can no longer be used to test them directly. For example:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>http://localhost:8080/getAllMedecins
 </code></pre></div>
 <p>now returns a 401 Unauthorized error without a token:</p>
@@ -1244,7 +1244,7 @@
 <p>This is the expected behavior: this response confirms that the server is properly protecting its routes. Postman (next section) is required to obtain a token and then use it.</p>
 <p><span id="tester-le-serveur-avec-postman" name="tester-le-serveur-avec-postman" class="odt-bookmark-anchor"></span></p>
 <h2 id="36-testing-the-nestjs-server-with-postman">3.6. <span style="color: #2e74b5">Testing the [NestJS] server with Postman</span></h2>
-<p>The Postman tool is available at URL <em><mark style="background-color: #fff5ce">[https://www.postman.com/downloads/]</mark></em>. You may need to create an account.</p>
+<p>The Postman tool is available at URL <em>[https://www.postman.com/downloads/]</em>. You may need to create an account.</p>
 <p>Start all Laragon services, then open the Postman desktop application:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002DD000001CDECEE907C.png" width="294" height="184" style="display:inline-block; margin:4px;width:7.766cm;height:4.881cm;" class="odt-zoomable" data-zoom-src="images/10000000000002DD000001CDECEE907C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000020D0000014C25D78584.png" width="263" height="166" style="display:inline-block; margin:4px;width:6.946cm;height:4.392cm;" class="odt-zoomable" data-zoom-src="images/100000000000020D0000014C25D78584.png" /></td></tr></table>
 
@@ -1254,10 +1254,10 @@
 <p><span id="se-connecter-et-obtenir-un-jeton" name="se-connecter-et-obtenir-un-jeton" class="odt-bookmark-anchor"></span></p>
 <h3 id="361-log-in-and-obtain-a-token">3.6.1. <span style="color: #1f4d78">Log in and obtain a token</span></h3>
 <ol>
-<li>Create a new Postman request with the method <strong>POST</strong>, URL<mark style="background-color: #fff5ce">http://localhost:8080/login</mark>;</li>
+<li>Create a new Postman request with the method <strong>POST</strong>, URLhttp://localhost:8080/login;</li>
 </ol>
 <ol start="2">
-  <li>In the <b>[Body]</b> tab, select &quot;<b>raw</b>,&quot; then the <b>JSON</b> format, and enter: {<mark style="background-color: #fff5ce">&quot;login&quot;: &quot;admin&quot;, &quot;password&quot;: &quot;admin&quot;</mark>} (or &quot;user/user&quot; to test the USER role);
+  <li>In the <b>[Body]</b> tab, select &quot;<b>raw</b>,&quot; then the <b>JSON</b> format, and enter: {&quot;login&quot;: &quot;admin&quot;, &quot;password&quot;: &quot;admin&quot;} (or &quot;user/user&quot; to test the USER role);
   </li>
   <li>Submit the request.
   </li>
@@ -1265,7 +1265,7 @@
 
 <p><img src="images/100000000000057C000004484B69727F.png" width="602" height="470" style="width:15.921cm;height:12.427cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000057C000004484B69727F.png" /></p>
 <ul>
-  <li>in [1-2], the request POST to the server <i><mark style="background-color: #fff5ce">[NestJS] </mark></i>running on port 8080;
+  <li>in [1-2], the request POST to the server <i>[NestJS] </i>running on port 8080;
   </li>
   <li>to [3-5], the body of the request. This transmits to the server the string JSON containing the credentials of the user attempting to log in, in this case admin/admin;
   </li>
@@ -1278,12 +1278,12 @@
 <p>Copy the value from accessToken: this is the token that must now be included in every subsequent request. In the example above, the token to copy is “eyJ...zoM” (without the quotes).</p>
 <p><span id="appeler-une-route-protegee-avec-le-jeton" name="appeler-une-route-protegee-avec-le-jeton" class="odt-bookmark-anchor"></span></p>
 <h3 id="362-call-a-protected-route-using-the-token">3.6.2. <span style="color: #1f4d78">Call a protected route using the token</span></h3>
-<p>For <mark style="background-color: #fff5ce">GET /getAllMedecins </mark>(or any other route starting with RdvMedecinsController), in Postman, on the <strong>Authorization</strong> tab, select the <strong>Bearer Token</strong> type and paste the token copied above (Postman will then automatically add the Authorization: Bearer &lt;token&gt; header).</p>
+<p>For GET /getAllMedecins (or any other route starting with RdvMedecinsController), in Postman, on the <strong>Authorization</strong> tab, select the <strong>Bearer Token</strong> type and paste the token copied above (Postman will then automatically add the Authorization: Bearer &lt;token&gt; header).</p>
 <p><img src="images/10000000000005590000054A64AFF51E.png" width="602" height="595" style="width:15.921cm;height:15.744cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005590000054A64AFF51E.png" /></p>
 <ul>
   <li>in [1-2], the request sent to the server. It requests the list of doctors in the database;
   </li>
-  <li>In [3-5], the request must send the authentication token. In [4], select <i><mark style="background-color: #fff5ce">[Bearer Token]</mark></i>, and in [5], paste the authentication token you copied earlier;
+  <li>In [3-5], the request must send the authentication token. In [4], select <i>[Bearer Token]</i>, and in [5], paste the authentication token you copied earlier;
   </li>
   <li>in [7], the server’s response;
   </li>
@@ -1292,7 +1292,7 @@
 <p><span id="tester-les-routes-post-ajouterrv-supprimerrv" name="tester-les-routes-post-ajouterrv-supprimerrv" class="odt-bookmark-anchor"></span></p>
 <h3 id="363-test-the-routes-post-ajouterrv-supprimerrv">3.6.3. <span style="color: #1f4d78">Test the routes POST (/ajouterRv, /supprimerRv)</span></h3>
 <p>Follow the same procedure as above (method POST, body JSON, Bearer Token), exactly as the original document used the Chrome extension “Advanced Rest [Client]” for the same routes.</p>
-<p><strong>Note</strong>: You can find the following Postman requests in the <em><mark style="background-color: #fff5ce">[rdvmedecins-nestJS.postman_collection.json]</mark></em> collection:</p>
+<p><strong>Note</strong>: You can find the following Postman requests in the <em>[rdvmedecins-nestJS.postman_collection.json]</em> collection:</p>
 <p><img src="images/100000000000029C0000030B2B251723.png" width="334" height="390" style="width:8.837cm;height:10.306cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029C0000030B2B251723.png" /></p>
 <p>In Postman, press Ctrl-0 to load the collection:</p>
 <p><img src="images/10000000000005F4000002A81D1A727B.png" width="602" height="268" style="width:15.921cm;height:7.103cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005F4000002A81D1A727B.png" /></p>
@@ -1302,7 +1302,7 @@
 </ul>
 
 <p><img src="images/10000000000003FC00000334CABD0B35.png" width="510" height="410" style="width:13.494cm;height:10.848cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003FC00000334CABD0B35.png" /></p>
-<p>To test <mark style="background-color: #fff5ce">/ajouterRv </mark>with the token from an account <strong>ADMIN</strong>:</p>
+<p>To test /ajouterRv with the token from an account <strong>ADMIN</strong>:</p>
 <ol>
   <li>Postman request, method <b>POST</b>, URLhttp://localhost:8080/ajouterRv;
   </li>
@@ -1323,7 +1323,7 @@
 <p><img src="images/100000000000058A00000529ABEBAFF4.png" width="602" height="561" style="width:15.921cm;height:14.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058A00000529ABEBAFF4.png" /></p>
 <p>You can verify with HeidiSQL that an appointment has been added to the database:</p>
 <p><img src="images/10000000000006A400000266AF435029.png" width="602" height="218" style="width:15.921cm;height:5.77cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006A400000266AF435029.png" /></p>
-<p>To test <mark style="background-color: #fff5ce">/supprimerRv</mark>, follow the same procedure with the body {&quot;idRv&quot;: 2} (the ID of the appointment to be canceled (8) above).</p>
+<p>To test /supprimerRv, follow the same procedure with the body {&quot;idRv&quot;: 2} (the ID of the appointment to be canceled (8) above).</p>
 <p><img src="images/100000000000058D0000034C0DB83F3D.png" width="602" height="357" style="width:15.921cm;height:9.454cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058D0000034C0DB83F3D.png" /></p>
 <ul>
   <li>in [4], where the number above is the appointment to be deleted;
@@ -1334,7 +1334,7 @@
 <ul>
   <li>to [5-7], the authentication token;
   </li>
-  <li>to [9], the server’s response. <i><mark style="background-color: #fff5ce">[status=0] </mark></i>indicates that the operation was successful. You can verify this with HeidiSQL:
+  <li>to [9], the server’s response. <i>[status=0] </i>indicates that the operation was successful. You can verify this with HeidiSQL:
   </li>
 </ul>
 
@@ -1344,10 +1344,10 @@
   </li>
 </ul>
 
-<p><strong>Try this</strong>: repeat the same request /ajouterRv using the token for the <strong>USER</strong> account (user/user) instead of the admin token: the response becomes 403 Forbidden, with the message “The role <em><mark style="background-color: #fff5ce">[USER] </mark></em>does not allow this action (required role: ADMIN)”—a concrete demonstration of the role-based access control implemented by the server.</p>
+<p><strong>Try this</strong>: repeat the same request /ajouterRv using the token for the <strong>USER</strong> account (user/user) instead of the admin token: the response becomes 403 Forbidden, with the message “The role <em>[USER]</em> does not allow this action (required role: ADMIN)”—a concrete demonstration of the role-based access control implemented by the server.</p>
 <h2 id="37-launch-the-kotlin-client-for-the-first-time">3.7. <span style="color: #2e74b5">Launch the Kotlin client for the first time</span></h2>
-<p>With the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server running, open the <strong><em><mark style="background-color: #fff5ce">[rdvmedecins-kotlin-client]</mark></em></strong> project in Android Studio (see Chapter 1) and start the emulator. In the Android Studio toolbar, the device drop-down list should display the emulator (for example, [Pixel 8 API 37]); the [Run] button (the green triangle) next to it compiles the app, installs it on the emulator, and launches it.</p>
-<p>Without Android Studio, the same steps can be performed from the command line: the Gradle task <strong><em><mark style="background-color: #fff5ce">[installDebug] </mark></em></strong>compiles and installs the app, and then <strong><em><mark style="background-color: #fff5ce">[adb] </mark></em></strong>launches it:</p>
+<p>With the <em>[NestJS]</em> server running, open the <strong><em>[rdvmedecins-kotlin-client]</em></strong> project in Android Studio (see Chapter 1) and start the emulator. In the Android Studio toolbar, the device drop-down list should display the emulator (for example, [Pixel 8 API 37]); the [Run] button (the green triangle) next to it compiles the app, installs it on the emulator, and launches it.</p>
+<p>Without Android Studio, the same steps can be performed from the command line: the Gradle task <strong><em>[installDebug]</em></strong> compiles and installs the app, and then <strong><em>[adb]</em></strong> launches it:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>$env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
@@ -1355,15 +1355,15 @@
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a>adb shell am start -n fr.rdvmedecins.client/.MainActivity
 </code></pre></div></td></tr></table></div>
 <ul>
-  <li><i><b><mark style="background-color: #fff5ce">[installDebug]</mark></b></i>: builds the app (like <i><b><mark style="background-color: #fff5ce">[assembleDebug]</mark></b></i>; see Chapter 1), then installs it on the connected device—emulator or phone;
+  <li><i><b>[installDebug]</b></i>: builds the app (like <i><b>[assembleDebug]</b></i>; see Chapter 1), then installs it on the connected device—emulator or phone;
   </li>
-  <li><i><b><mark style="background-color: #fff5ce">[adb shell am start -n &lt;application&gt;/&lt;activité&gt;]</mark></b></i>: instructs the Android Activity Manager ([am], Activity Manager) to launch the <i><b><mark style="background-color: #fff5ce">[MainActivity]</mark></b></i> activity of the <i><b><mark style="background-color: #fff5ce">[fr.rdvmedecins.client]</mark></b></i> app—which is what the system does when you tap the app icon.
+  <li><i><b>[adb shell am start -n &lt;application&gt;/&lt;activité&gt;]</b></i>: instructs the Android Activity Manager ([am], Activity Manager) to launch the <i><b>[MainActivity]</b></i> activity of the <i><b>[fr.rdvmedecins.client]</b></i> app—which is what the system does when you tap the app icon.
   </li>
 </ul>
 
 <p><img src="images/100000000000021C000004B07CBCFF0D.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B07CBCFF0D.png" /></p>
-<p>The login screen appears first, just as it did for previous students in this course: two demo accounts are provided with the server database, <strong><em><mark style="background-color: #fff5ce">[admin]/[admin]</mark></em></strong> (role <em><mark style="background-color: #fff5ce">[ADMIN]</mark></em>, full access) and <strong><em><mark style="background-color: #fff5ce">[user]/[user] </mark></em></strong>(role <em><mark style="background-color: #fff5ce">[USER]</mark></em>, read-only). The “FR”/“EN” buttons in the upper-right corner switch the interface to English, even before logging in.</p>
-<p>The “Server URL” field contains <strong><em><mark style="background-color: #fff5ce">[http://10.0.2.2:8080]</mark></em></strong> by default: in the emulator, the special address <strong><em><mark style="background-color: #fff5ce">[10.0.2.2] </mark></em></strong>refers to the computer running the emulator, i.e., the server <em><mark style="background-color: #fff5ce">[NestJS]</mark></em>. If the connection fails after about ten seconds (message: “Incorrect login or password. ”), it is most often because this address is not responding: this happened on the computer used to write this document. The solution is described in Chapter 5: the command <strong><em><mark style="background-color: #fff5ce">[adb reverse tcp:8080 tcp:8080]</mark></em></strong>, followed by URL and <strong><em><mark style="background-color: #fff5ce">[http://localhost:8080]</mark></em></strong>.</p>
+<p>The login screen appears first, just as it did for previous students in this course: two demo accounts are provided with the server database, <strong><em>[admin]/[admin]</em></strong> (role <em>[ADMIN]</em>, full access) and <strong><em>[user]/[user]</em></strong> (role <em>[USER]</em>, read-only). The “FR”/“EN” buttons in the upper-right corner switch the interface to English, even before logging in.</p>
+<p>The “Server URL” field contains <strong><em>[http://10.0.2.2:8080]</em></strong> by default: in the emulator, the special address <strong><em>[10.0.2.2]</em></strong> refers to the computer running the emulator, i.e., the server <em>[NestJS]</em>. If the connection fails after about ten seconds (message: “Incorrect login or password. ”), it is most often because this address is not responding: this happened on the computer used to write this document. The solution is described in Chapter 5: the command <strong><em>[adb reverse tcp:8080 tcp:8080]</em></strong>, followed by URL and <strong><em>[http://localhost:8080]</em></strong>.</p>
 
 
 

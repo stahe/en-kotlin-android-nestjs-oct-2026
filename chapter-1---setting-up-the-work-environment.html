@@ -632,25 +632,25 @@
 <h1 id="2-chapter-1-setting-up-the-work-environment">2. <span style="color: #2e74b5">Chapter 1 - Setting Up the Work Environment</span></h1>
 <h2 id="21-installing-the-tools">2.1. <span style="color: #2e74b5">Installing the Tools</span></h2>
 <ul>
-<li>Node.js: Download and install version 22 (or later) from nodejs.org. Verify the installation in a terminal using the commands <strong><em><mark style="background-color: #fff5ce">[node --version] </mark></em></strong>and <strong><em><mark style="background-color: #fff5ce">[npm --version]</mark></em></strong>. Node.js is only useful for the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server.</li>
-<li><em><mark style="background-color: #fff5ce">[MySQL]</mark></em> 8: It is installed in Chapter 2 using the Laragon tool, which also provides the administration tool HeidiSQL.</li>
+<li>Node.js: Download and install version 22 (or later) from nodejs.org. Verify the installation in a terminal using the commands <strong><em>[node --version]</em></strong> and <strong><em>[npm --version]</em></strong>. Node.js is only useful for the <em>[NestJS]</em> server.</li>
+<li><em>[MySQL]</em> 8: It is installed in Chapter 2 using the Laragon tool, which also provides the administration tool HeidiSQL.</li>
 <li>Postman: Available for free download at postman.com; it is used to test the server in Chapter 2.</li>
-<li>Visual Studio Code: optional, for viewing the server code <em><mark style="background-color: #fff5ce">[NestJS]</mark></em>.</li>
+<li>Visual Studio Code: optional, for viewing the server code <em>[NestJS]</em>.</li>
 </ul>
-<p>For the client, only one tool is needed: <em><mark style="background-color: #fff5ce">[Android Studio]</mark></em>. It is not necessary to install a JDK (Java Development Kit) separately: Android Studio includes its own, the JetBrains Runtime (<em><mark style="background-color: #fff5ce">[JBR]</mark></em>), which is used to run <em><mark style="background-color: #fff5ce">[Gradle]</mark></em>, the Android project build tool. The Kotlin compiler does not need to be installed either: it is a Gradle plugin that is automatically downloaded the first time the project is built.</p>
+<p>For the client, only one tool is needed: <em>[Android Studio]</em>. It is not necessary to install a JDK (Java Development Kit) separately: Android Studio includes its own, the JetBrains Runtime (<em>[JBR]</em>), which is used to run <em>[Gradle]</em>, the Android project build tool. The Kotlin compiler does not need to be installed either: it is a Gradle plugin that is automatically downloaded the first time the project is built.</p>
 <h3 id="211-android-studio-and-sdk-for-android">2.1.1. <span style="color: #1f4d78">Android Studio and SDK for Android</span></h3>
-<p><em><mark style="background-color: #fff5ce">[Android Studio] </mark></em>can be downloaded for free at [https://developer.android.com/studio]. When you launch it for the first time, the wizard offers a standard installation: accept it. It will then download SDK Android (the platform libraries, compilation tools, and emulator).</p>
+<p><em>[Android Studio]</em> can be downloaded for free at [https://developer.android.com/studio]. When you launch it for the first time, the wizard offers a standard installation: accept it. It will then download SDK Android (the platform libraries, compilation tools, and emulator).</p>
 <p><img src="images/100000000000061F000004EF3DA687E7.png" width="491" height="396" style="width:13cm;height:10.478cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000061F000004EF3DA687E7.png" /></p>
 <p>This document has been tested with Android Studio Quail 4 (2026.1.4). The home screen provides access, via the link [More Actions], to [SDK Manager] and [Virtual Device Manager], which are used later on:</p>
 <p><img src="images/10000000000003980000036506662E07.png" width="454" height="428" style="width:12cm;height:11.335cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003980000036506662E07.png" /></p>
 <ul>
 <li>[SDK Manager] installs and updates the components of SDK for Android. [SDK Platforms] tab: Verify that a recent Android platform is installed—the project in this document is compiled for API 37 (Android 17). If it is missing, Gradle will download it automatically during the first build;</li>
-<li>[SDK Tools] tab: Verify that [Android SDK Build-Tools], [Android SDK Platform-Tools] (which contains the <strong><em><mark style="background-color: #fff5ce">[adb]</mark></em></strong> tool), and [Android Emulator] are checked.</li>
+<li>[SDK Tools] tab: Verify that [Android SDK Build-Tools], [Android SDK Platform-Tools] (which contains the <strong><em>[adb]</em></strong> tool), and [Android Emulator] are checked.</li>
 </ul>
 <p><img src="images/10000000000005D80000038F60765B8C.png" width="529" height="322" style="width:14cm;height:8.525cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005D80000038F60765B8C.png" /></p>
-<p>SDK is installed by default in the <strong><em><mark style="background-color: #fff5ce">[%LOCALAPPDATA%\Android\Sdk]</mark></em></strong> folder (on Windows). Two of its subfolders contain command-line tools used in this document: <strong><em><mark style="background-color: #fff5ce">[platform-tools] </mark></em></strong>(the <strong><em><mark style="background-color: #fff5ce">[adb]</mark></em></strong> tool, which controls a phone or emulator from the computer) and <strong><em><mark style="background-color: #fff5ce">[emulator]</mark></em></strong>. You can add these two folders to the system’s [PATH] so that you can simply type <strong><em><mark style="background-color: #fff5ce">[adb] </mark></em></strong>in a terminal.</p>
+<p>SDK is installed by default in the <strong><em>[%LOCALAPPDATA%\Android\Sdk]</em></strong> folder (on Windows). Two of its subfolders contain command-line tools used in this document: <strong><em>[platform-tools]</em></strong> (the <strong><em>[adb]</em></strong> tool, which controls a phone or emulator from the computer) and <strong><em>[emulator]</em></strong>. You can add these two folders to the system’s [PATH] so that you can simply type <strong><em>[adb]</em></strong> in a terminal.</p>
 <h2 id="22-create-an-android-project-with-android-studio">2.2. <span style="color: #2e74b5">Create an Android project with Android Studio</span></h2>
-<p>The client code is included with this document (folder <strong><em><mark style="background-color: #fff5ce">[rdvmedecins-kotlin-client]</mark></em></strong>). It was created from the Android Studio project template [Empty Activity] and then expanded upon. Let’s first look at how this starter project is created: it’s the equivalent of the <strong><em><mark style="background-color: #fff5ce">[flutter create]</mark></em></strong> command from the Flutter course. On the Android Studio home screen, click [New Project]:</p>
+<p>The client code is included with this document (folder <strong><em>[rdvmedecins-kotlin-client]</em></strong>). It was created from the Android Studio project template [Empty Activity] and then expanded upon. Let’s first look at how this starter project is created: it’s the equivalent of the <strong><em>[flutter create]</em></strong> command from the Flutter course. On the Android Studio home screen, click [New Project]:</p>
 <p><img src="images/10000000000003630000027295501388.png" width="529" height="382" style="width:14cm;height:10.109cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003630000027295501388.png" /></p>
 <ul>
 <li>In the [Phone and large screens] category, select the [Empty Activity] template. This is the “Jetpack Compose” template: a single-screen app whose UI is defined in Kotlin. The [Empty Views Activity] template, on the other hand, uses the older view system described in XML, which this document does not use;</li>
@@ -658,8 +658,8 @@
 </ul>
 <p><img src="images/100000000000036300000272252FA450.png" width="529" height="382" style="width:14cm;height:10.109cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000036300000272252FA450.png" /></p>
 <ul>
-<li>[Name]: the application name, displayed beneath its icon on the phone. For this document: <strong><em><mark style="background-color: #fff5ce">[RdvMedecins]</mark></em></strong>;</li>
-<li>[Package name]: the application’s unique identifier, in the form of a reverse domain name. For this document: <strong><em><mark style="background-color: #fff5ce">[fr.rdvmedecins.client]</mark></em></strong>. This is also the base Kotlin package for the source code;</li>
+<li>[Name]: the application name, displayed beneath its icon on the phone. For this document: <strong><em>[RdvMedecins]</em></strong>;</li>
+<li>[Package name]: the application’s unique identifier, in the form of a reverse domain name. For this document: <strong><em>[fr.rdvmedecins.client]</em></strong>. This is also the base Kotlin package for the source code;</li>
 <li>[Save location]: the project folder;</li>
 <li>[Minimum SDK]: the oldest supported version of Android. The client in this document requires API 26 (Android 8.0), which covers nearly all phones in use;</li>
 <li>[Build configuration language]: the language for Gradle configuration files. [Kotlin DSL (build.gradle.kts)] is the recommended choice: the build configuration is also written in Kotlin;</li>
@@ -694,17 +694,17 @@
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>        ├── java/com/example/...   # the Kotlin code (folder traditionally named "java/")
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>        └── res/                   # resources: icons, text, theme
 </code></pre></div></td></tr></table></div>
-<p><em><mark style="background-color: #fff5ce">[Gradle] </mark></em>plays the same role here that <strong><em><mark style="background-color: #fff5ce">[npm]</mark></em></strong> played for a Node.js project or that <strong><em><mark style="background-color: #fff5ce">[flutter]/[pub] </mark></em></strong>played for the Flutter project: it downloads the dependencies, compiles the code, and produces the installable application, an .apk file. The scripts <strong><em><mark style="background-color: #fff5ce">[gradlew] </mark></em></strong>(Linux, macOS) and <strong><em><mark style="background-color: #fff5ce">[gradlew.bat] </mark></em></strong>(Windows), the “wrapper ” Gradle, download the exact version of Gradle required by the project (specified in <strong><em><mark style="background-color: #fff5ce">[gradle/wrapper/gradle-wrapper.properties]</mark></em></strong>) as needed: no global installation of Gradle is required.</p>
+<p><em>[Gradle]</em> plays the same role here that <strong><em>[npm]</em></strong> played for a Node.js project or that <strong><em>[flutter]/[pub]</em></strong> played for the Flutter project: it downloads the dependencies, compiles the code, and produces the installable application, an .apk file. The scripts <strong><em>[gradlew]</em></strong> (Linux, macOS) and <strong><em>[gradlew.bat]</em></strong> (Windows), the “wrapper ” Gradle, download the exact version of Gradle required by the project (specified in <strong><em>[gradle/wrapper/gradle-wrapper.properties]</em></strong>) as needed: no global installation of Gradle is required.</p>
 <h2 id="23-open-the-client-project">2.3. <span style="color: #2e74b5">Open the client project</span></h2>
-<p>If you have downloaded the code from this document, the client is located in the <strong><em><mark style="background-color: #fff5ce">[rdvmedecins-kotlin-client]</mark></em></strong> folder. To open it: from the Android Studio home screen, click the [Open] button, then select that folder (the one containing <strong><em><mark style="background-color: #fff5ce">[settings.gradle.kts]</mark></em></strong>). Android Studio will start the Gradle synchronization described above. The project will then appear in the [Project] view (on the left); the [Android] view, which is the default, groups files by type (manifests, Kotlin+Java, assets, res) rather than by folder.</p>
-<p>The project can also be built without opening Android Studio, using the command line. In a terminal opened in the <strong><em><mark style="background-color: #fff5ce">[rdvmedecins-kotlin-client]</mark></em></strong> folder:</p>
+<p>If you have downloaded the code from this document, the client is located in the <strong><em>[rdvmedecins-kotlin-client]</em></strong> folder. To open it: from the Android Studio home screen, click the [Open] button, then select that folder (the one containing <strong><em>[settings.gradle.kts]</em></strong>). Android Studio will start the Gradle synchronization described above. The project will then appear in the [Project] view (on the left); the [Android] view, which is the default, groups files by type (manifests, Kotlin+Java, assets, res) rather than by folder.</p>
+<p>The project can also be built without opening Android Studio, using the command line. In a terminal opened in the <strong><em>[rdvmedecins-kotlin-client]</em></strong> folder:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>$env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a>.\gradlew.bat assembleDebug
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>the first line (PowerShell) tells Gradle which JDK to use: the one from Android Studio. This is unnecessary if the <strong><em><mark style="background-color: #fff5ce">[JAVA_HOME]</mark></em></strong> variable is already defined on the machine;</li>
-<li>the second line runs the Gradle task <strong><em><mark style="background-color: #fff5ce">[assembleDebug]</mark></em></strong>, which compiles the project and produces a “debug” app that can be installed on an emulator or a phone.</li>
+<li>the first line (PowerShell) tells Gradle which JDK to use: the one from Android Studio. This is unnecessary if the <strong><em>[JAVA_HOME]</em></strong> variable is already defined on the machine;</li>
+<li>the second line runs the Gradle task <strong><em>[assembleDebug]</em></strong>, which compiles the project and produces a “debug” app that can be installed on an emulator or a phone.</li>
 </ul>
 <p>During the first build, Gradle downloads everything it needs and then displays the list of tasks it is running:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
@@ -730,9 +730,9 @@
 <a id="__codelineno-2-11" name="__codelineno-2-11"></a>36 actionable tasks: 36 executed
 </code></pre></div></td></tr></table></div>
 <ul>
-<li><strong><em><mark style="background-color: #fff5ce">[compileDebugKotlin]</mark></em></strong>: compilation of Kotlin code into Java bytecode;</li>
-<li><strong><em><mark style="background-color: #fff5ce">[dexBuilderDebug]</mark></em></strong>: conversion of this bytecode to the DEX format, the format executed by the Android virtual machine (<em><mark style="background-color: #fff5ce">[ART]</mark></em>, Android Runtime);</li>
-<li><strong><em><mark style="background-color: #fff5ce">[packageDebug]</mark></em></strong>: assembly of the <strong><em><mark style="background-color: #fff5ce">[app/build/outputs/apk/debug/app-debug.apk]</mark></em></strong> file, the installable application.</li>
+<li><strong><em>[compileDebugKotlin]</em></strong>: compilation of Kotlin code into Java bytecode;</li>
+<li><strong><em>[dexBuilderDebug]</em></strong>: conversion of this bytecode to the DEX format, the format executed by the Android virtual machine (<em>[ART]</em>, Android Runtime);</li>
+<li><strong><em>[packageDebug]</em></strong>: assembly of the <strong><em>[app/build/outputs/apk/debug/app-debug.apk]</em></strong> file, the installable application.</li>
 </ul>
 <h2 id="24-set-up-an-android-emulator">2.4. <span style="color: #2e74b5">Set Up an Android Emulator</span></h2>
 <p>If you don’t have a phone, you can test the app on an Android emulator: a virtual phone that runs in a window on your computer. This section is the same as the one in the Flutter course.</p>
@@ -749,23 +749,23 @@
 <span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>&amp; "$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe" -list-avds
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a>&amp; "$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe" -avd Pixel_8
 </code></pre></div></td></tr></table></div>
-<p>Wait until the Android home screen appears in the emulator window (the first startup may take several minutes), then verify that the <strong><em><mark style="background-color: #fff5ce">[adb]</mark></em></strong> tool detects it:</p>
+<p>Wait until the Android home screen appears in the emulator window (the first startup may take several minutes), then verify that the <strong><em>[adb]</em></strong> tool detects it:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>&amp; "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" devices
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a>List of devices attached
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a>emulator-5554    device
 </code></pre></div></td></tr></table></div>
-<p>[Remarque]: If <strong><em><mark style="background-color: #fff5ce">[adb devices] </mark></em></strong>displays <strong><em><mark style="background-color: #fff5ce">[offline] </mark></em></strong>instead of <strong><em><mark style="background-color: #fff5ce">[device]</mark></em></strong>, the emulator has not finished starting up, or <strong><em><mark style="background-color: #fff5ce">[adb] </mark></em></strong>is in an inconsistent state. Wait for the welcome screen, then, if necessary, restart <strong><em><mark style="background-color: #fff5ce">[adb] </mark></em></strong>using the commands <strong><em><mark style="background-color: #fff5ce">[adb kill-server] </mark></em></strong>followed by <strong><em><mark style="background-color: #fff5ce">[adb start-server]</mark></em></strong>. If the problem persists, use <strong><em><mark style="background-color: #fff5ce">[where.exe adb]</mark></em></strong> to verify that no other <strong><em><mark style="background-color: #fff5ce">[adb]</mark></em></strong>, of a different version (such as that of a previous SDK, for example), is present in the [PATH].</p>
+<p>[Remarque]: If <strong><em>[adb devices]</em></strong> displays <strong><em>[offline]</em></strong> instead of <strong><em>[device]</em></strong>, the emulator has not finished starting up, or <strong><em>[adb]</em></strong> is in an inconsistent state. Wait for the welcome screen, then, if necessary, restart <strong><em>[adb]</em></strong> using the commands <strong><em>[adb kill-server]</em></strong> followed by <strong><em>[adb start-server]</em></strong>. If the problem persists, use <strong><em>[where.exe adb]</em></strong> to verify that no other <strong><em>[adb]</em></strong>, of a different version (such as that of a previous SDK, for example), is present in the [PATH].</p>
 <h3 id="241-preparing-the-android-phone">2.4.1. <span style="color: #1f4d78">Preparing the Android Phone</span></h3>
 <p>To run the app on a real Android phone, the phone must be set to allow control from the computer:</p>
 <ul>
 <li>enable developer options: open [Paramètres / À propos du téléphone], then tap [Numéro de build] several times (usually 7) until the phone indicates that you are a developer. The exact labels vary by manufacturer;</li>
 <li>enable [Débogage USB] in the [Options pour les développeurs] menu (added in the previous step);</li>
 <li>Connect the phone to the computer using a USB cable that transfers data (not just charges the phone), and accept the USB debugging authorization request on the phone. On Windows, if the phone is not recognized, install the manufacturer’s driver USB (“OEM USB drivers,” see [https://developer.android.com/studio/run/oem-usb]);</li>
-<li>check that the phone appears in the list displayed by <strong><em><mark style="background-color: #fff5ce">[adb devices]</mark></em></strong>.</li>
+<li>check that the phone appears in the list displayed by <strong><em>[adb devices]</em></strong>.</li>
 </ul>
-<p>The phone will access the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server either via the computer’s IP address on the local network or via the USB cable using the <strong><em><mark style="background-color: #fff5ce">[adb reverse]</mark></em></strong> command: These settings are described in Chapter 5.</p>
+<p>The phone will access the <em>[NestJS]</em> server either via the computer’s IP address on the local network or via the USB cable using the <strong><em>[adb reverse]</em></strong> command: These settings are described in Chapter 5.</p>
 
 
 
