@@ -631,7 +631,7 @@
 <p><span id="introduction" name="introduction" class="odt-bookmark-anchor"></span></p>
 <h1 id="1-introduction">1. <span style="color: #2e74b5">Introduction</span></h1>
 <p>The PDF in the document is |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQBNCvO1CjKTRYPAQo6XYCWrAYIOux-z-uUeMhyORrgUP0Q?e=eikbkC">HERE</a>|.</p>
-<p>The code in this document is |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQC5dBa3JxouSbPxWODVhbTgAZfAf0hfPjCbxfr7wCCTwwE?e=UTPWme">HERE</a>|.</p>
+<p>The code in this document is |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQD6K3LwCVb_RZxRrCUSykuCAXJvJ6TZaAanrrdjozIIdW0">HERE</a>|.</p>
 <p>This document is a product of Anthropic’s IA Claude. Its purpose is to adapt the document <a href="https://stahe.github.io/en-spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">“An Example of a Client/Server – AngularJS 1.x / Spring 4”</span></u></a> in two ways:</p>
 <ul>
 <li>the client AngularJS 1.x is replaced by a native Android application written in <em>[Kotlin]</em> using <em>[Jetpack Compose]</em>;</li>
@@ -644,20 +644,20 @@
 <li>generating the course in ODT format: Claude generated the document, which the reviewer proofread and tested by following along with it.</li>
 </ul>
 <p>Note 1: If the reader’s primary goal is to “learn NestJS,” an introduction to this web framework is available in the document <a href="https://stahe.github.io/en-typescript-nestjs-sept-2026/"><u><span style="color: #0563c1">Introduction to the TypeScript Language and the NestJS Web Framework Through Examples</span></u></a>. In this document, the NestJS server is treated as a black box. You are told how to use it, but its code is not described.</p>
-<p>Note 2: The programming language used in this document is <em>[Kotlin]</em>. Its fundamentals (classes, data classes, nullability, lambdas, extension functions, collections, etc.) are assumed to be known: they are covered in the <a href="https://stahe.github.io/kotlin-oct-2026/"><u><span style="color: #0563c1">Kotlin course</span></u></a>. Concepts specific to Android or Jetpack Compose, as well as coroutines, are explained throughout the document.</p>
+<p>Note 2: The programming language used in this document is <em>[Kotlin]</em>. Its fundamentals (classes, data classes, nullability, lambdas, extension functions, collections, etc.) are assumed to be known: they are covered in the <a href="https://stahe.github.io/en-kotlin-oct-2026/"><u><span style="color: #0563c1">Kotlin course</span></u></a>. Concepts specific to Android or Jetpack Compose, as well as coroutines, are explained throughout the document.</p>
 <p>Note 3: Claude often refers to the <em>[Flutter]</em> client from the course <a href="https://stahe.github.io/en-flutter-nestjs-sept-2026/"><u><span style="color: #0563c1">“An Example of a Client/Server Application—Flutter / NestJS” (2026)</span></u></a>, of which this document is a port, and sometimes to the <a href="https://stahe.github.io/en-angular-nestjs-sept-2026/"><u><span style="color: #0563c1">Angular</span></u></a>, <a href="https://stahe.github.io/en-react-nestjs-sept-2026/"><u><span style="color: #0563c1">React</span></u></a>, and <a href="https://stahe.github.io/en-vuejs-nestjs-sept-2026/"><u><span style="color: #0563c1">Vue.js</span></u></a> web clients for the same application. These comparisons help readers who are familiar with one of these frameworks, but knowledge of any of them is not required to follow this document.</p>
 <p>Note 4: If you feel that Claude’s explanations are not sufficient, submit a request to Claude asking for clarification on a specific point in his course. This is often helpful.</p>
 <p>Serge Tahé, October 2026</p>
 <p>==</p>
-<p>This document is a follow-up to the course <a href="https://stahe.github.io/en-spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">“An Example of a Client/Server Application—AngularJS 1.x / Spring 4</span></u></a>,<a href="https://stahe.github.io/spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">”</span></u></a> written in 2014. That original document built a small application for scheduling medical appointments (“[RdvMedecins]”) using a Spring 4 / Spring Data / Spring MVC server and a AngularJS 1.x client.</p>
+<p>This document is a follow-up to the course <a href="https://stahe.github.io/en-spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">“An Example of a Client/Server Application—AngularJS 1.x / Spring 4</span></u></a>,<a href="https://stahe.github.io/en-spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">”</span></u></a> written in 2014. That original document built a small application for scheduling medical appointments (“[RdvMedecins]”) using a Spring 4 / Spring Data / Spring MVC server and a AngularJS 1.x client.</p>
 <p>Twelve years later, the two frameworks used have evolved significantly—or have even been replaced in common use:</p>
 <ul>
 <li>on the server side, <em>[NestJS]</em> has established itself as one of the most widely used Node.js/TypeScript frameworks for building structured web applications, with a philosophy similar to that of Spring (modules, controllers, services, dependency injection);</li>
-<li>On the client side, apps are increasingly being accessed on a phone. This document therefore describes an Android app named NATIVE: written in <em>[Kotlin]</em>, the language recommended by Google for Android since 2019, and featuring an interface described using <em>[Jetpack Compose]</em>, Android’s declarative UI library (stable since 2021), which replaces the old system of views described in XML.</li>
+<li>On the client side, apps are increasingly being accessed on a phone. This document therefore describes a NATIVE Android app: written in <em>[Kotlin]</em>, the language recommended by Google for Android since 2019, and featuring an interface described using <em>[Jetpack Compose]</em>, Android’s declarative UI library (stable since 2021), which replaces the old system of views described in XML.</li>
 </ul>
 <p>The goal of this document is to revisit the original case study—the same app, the same features, the same database—and rebuild it using current tools, while maintaining as much of the same instructional progression as the 2014 document and its 2026 Flutter variant as possible.</p>
 <h2 id="11-a-step-by-step-reconstruction">1.1. <span style="color: #2e74b5">A Step-by-Step Reconstruction</span></h2>
-<p>The original document was approximately 300 pages long and covered, in addition to the application’s core functionality—role-based authentication (Spring Security)—twelve progressive examples for learning AngularJS and 1.x step by step. Like the Flutter variant, this document covers:</p>
+<p>The original document was approximately 300 pages long and covered, in addition to the application’s core functionality—role-based authentication (Spring Security)—twelve progressive examples for learning AngularJS 1.x step by step. Like the Flutter variant, this document covers:</p>
 <ul>
 <li>the application’s general architecture (unchanged in principle);</li>
 <li>the database (unchanged, except for the addition of the [users] table);</li>
@@ -669,7 +669,7 @@
 <h2 id="12-who-this-document-is-for">1.2. <span style="color: #2e74b5">Who This Document Is For</span></h2>
 <p>This document assumes no prior knowledge of Android, Jetpack Compose, or <em>[NestJS]</em>. Each new concept (activity, @Composable function, state, ViewModel, coroutine, HTTP interceptor, etc.) is explained as it appears. However, some basic knowledge is still helpful:</p>
 <ul>
-<li>a basic understanding of the Kotlin language (see the <a href="https://stahe.github.io/kotlin-oct-2026/"><u><span style="color: #0563c1">Kotlin course</span></u></a>);</li>
+<li>a basic understanding of the Kotlin language (see the <a href="https://stahe.github.io/en-kotlin-oct-2026/"><u><span style="color: #0563c1">Kotlin course</span></u></a>);</li>
 <li>a basic understanding of HTTP exchanges (GET/POST methods, JSON format);</li>
 <li>experience using the command line (cd, npm install...).</li>
 </ul>
@@ -683,19 +683,19 @@
 <p>The application under study will have the following architecture:</p>
 <p><img src="images/10000000000003790000030907E1F5D7.png" width="529" height="462" style="width:14cm;height:12.236cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003790000030907E1F5D7.png" /></p>
 <ul>
-<li>In [1], the Android application user queries the [présentation] [2] layer of the application;</li>
-<li>to execute the action requested by the user, the [présentation] [2] layer may query the [Services] [3] layer;</li>
+<li>In [1], the Android application user queries the [Presentation] [2] layer of the application;</li>
+<li>to execute the action requested by the user, the [Presentation] [2] layer may query the [Services] [3] layer;</li>
 <li>To provide the requested service, the [3] layer may need to query [4], the remote server JSON implemented by <em>[NestJS]</em>;</li>
 <li>Depending on the request received in [5], the [6-8] layers may be queried;</li>
 <li>the server’s response returns the [2-8] layers in reverse order;</li>
 <li>the screen displayed to the user ([1]) reflects this response.</li>
 </ul>
-<p>Note: If you’re confused by the project’s architecture, refer back to this diagram. Note that SGBD is processed by the server, not by the client.</p>
+<p>Note: If you’re confused by the project’s architecture, refer back to this diagram. Note that the DBMS is handled by the server, not by the client.</p>
 <h2 id="14-tools-used">1.4. <span style="color: #2e74b5">Tools Used</span></h2>
 <p>This document uses the following tools (their installation is detailed in Chapters 1 and 2):</p>
 <ul>
 <li>Node.js (version 22 or later) and npm, to run the <em>[NestJS]</em> server;</li>
-<li><em>[Android Studio]</em>, Google’s development environment for Android. It provides everything the client needs: the code editor (built on IntelliJ and IDEA), Android Studio, a JDK (the JetBrains Runtime), the Android emulator, and the <em>[Gradle]</em> build tool. Unlike the Flutter course, where Android Studio was used only to install the SDK Android emulator, here it serves as the client editor;</li>
+<li><em>[Android Studio]</em>, Google’s development environment for Android. It provides everything the client needs: the code editor (built on IntelliJ IDEA), the Android SDK, a JDK (the JetBrains Runtime), the Android emulator, and the <em>[Gradle]</em> build tool. Unlike the Flutter course, where Android Studio was used only to install the Android SDK, here it serves as the client editor;</li>
 <li>Visual Studio Code (or any other editor) for the NestJS server, if you want to view its code;</li>
 <li><em>[MySQL]</em> 8 for the database, installed with Laragon;</li>
 <li>Postman (or any other HTTP client) to test the server’s URL;</li>
@@ -715,25 +715,25 @@
 <p>Above is the app in the Android emulator: the login screen, followed by a doctor’s calendar, and then the screen after booking a time slot.</p>
 <h2 id="16-whats-changed-what-hasnt">1.6. <span style="color: #2e74b5">What’s changed, what hasn’t</span></h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Original document (2014)</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Flutter variant (2026)</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>This document (2026)</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Base de données
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Database
 </code></pre></div>
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">MySQL 5</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">MySQL 8, same tables</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">identical to the Flutter variant</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Serveur
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Server
 </code></pre></div>
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Java, Spring 4</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">TypeScript, NestJS</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">same server NestJS</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Client
 </code></pre></div>
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">JavaScript, AngularJS 1.x</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Dart, Flutter (mobile, desktop, web)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Kotlin, Jetpack Compose (Android)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Exécution du client
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Client execution
 </code></pre></div>
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">browser</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">native code compiled by Flutter</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Android virtual machine (ART)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Construction
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Build
 </code></pre></div>
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Bower</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Flutter / Pub</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Gradle</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Authentification
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Authentication
 </code></pre></div>
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Spring Security, HTTP Basic</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Passport/JWT</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Passport/JWT (same server)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Internationalisation FR/EN
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>FR/EN internationalization
 </code></pre></div>
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">angular-translate</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">TranslationsService (handmade)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">TranslationsService (handmade, same dictionaries)</div></td></tr></table>
 

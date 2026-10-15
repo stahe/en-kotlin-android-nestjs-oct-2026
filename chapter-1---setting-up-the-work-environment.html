@@ -683,7 +683,7 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>├── settings.gradle.kts            # global configuration: repositories, project modules
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>├── build.gradle.kts               # Gradle plugins used by the modules
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a>├── gradle.properties              # Gradle options
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>├── gradlew, gradlew.bat           # the Gradle “wrapper” (see below)
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>├── gradlew, gradlew.bat           # the Gradle "wrapper" (see below)
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a>├── gradle/
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a>│   ├── libs.versions.toml         # library version catalog
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>│   └── wrapper/                   # Gradle version used by the project
@@ -691,8 +691,8 @@
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>    ├── build.gradle.kts           # Android configuration + dependencies
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>    └── src/main/
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>        ├── AndroidManifest.xml    # the application's "identity card"
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        ├── java/com/example/...   # the Kotlin code (folder traditionally named "java/")
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        └── res/                   # resources: icons, text, theme
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        ├── java/com/example/...   # the Kotlin code (folder named java/ by tradition)
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        └── res/                   # resources: icons, texts, theme
 </code></pre></div></td></tr></table></div>
 <p><em>[Gradle]</em> plays the same role here that <strong><em>[npm]</em></strong> played for a Node.js project or that <strong><em>[flutter]/[pub]</em></strong> played for the Flutter project: it downloads the dependencies, compiles the code, and produces the installable application, an .apk file. The scripts <strong><em>[gradlew]</em></strong> (Linux, macOS) and <strong><em>[gradlew.bat]</em></strong> (Windows), the “wrapper ” Gradle, download the exact version of Gradle required by the project (specified in <strong><em>[gradle/wrapper/gradle-wrapper.properties]</em></strong>) as needed: no global installation of Gradle is required.</p>
 <h2 id="23-open-the-client-project">2.3. <span style="color: #2e74b5">Open the client project</span></h2>
@@ -736,7 +736,7 @@
 </ul>
 <h2 id="24-set-up-an-android-emulator">2.4. <span style="color: #2e74b5">Set Up an Android Emulator</span></h2>
 <p>If you don’t have a phone, you can test the app on an Android emulator: a virtual phone that runs in a window on your computer. This section is the same as the one in the Flutter course.</p>
-<p>[Prérequis]: Virtualization must be enabled in the computer’s [BIOS], and on Windows, the [Plateforme de l’hyperviseur Windows] feature must be checked ([Panneau de configuration / Programmes / Activer ou désactiver des fonctionnalités Windows]), which requires a restart. Otherwise, the emulator will not start or will run very slowly.</p>
+<p>[Prerequisites]: Virtualization must be enabled in the computer’s [BIOS], and on Windows, the [Windows Hypervisor Platform] feature must be checked ([Control Panel / Programs / Turn Windows features on or off]), which requires a restart. Otherwise, the emulator will not start or will run very slowly.</p>
 <p>Open the [Device Manager] in Android Studio: [More Actions / Virtual Device Manager] from the home screen, or [Tools / Device Manager] when a project is open.</p>
 <p><img src="images/100000000000046D00000328B20C690A.png" width="454" height="323" style="width:12cm;height:8.558cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000046D00000328B20C690A.png" /></p>
 <p>Click on [Create Device], select a template (for example, [Pixel 8]), then [Next]. Select a recent Android system image for the [x86_64] processor and download it using the [Download] link located next to it, then [Next] and [Finish].</p>
@@ -756,12 +756,12 @@
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a>List of devices attached
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a>emulator-5554    device
 </code></pre></div></td></tr></table></div>
-<p>[Remarque]: If <strong><em>[adb devices]</em></strong> displays <strong><em>[offline]</em></strong> instead of <strong><em>[device]</em></strong>, the emulator has not finished starting up, or <strong><em>[adb]</em></strong> is in an inconsistent state. Wait for the welcome screen, then, if necessary, restart <strong><em>[adb]</em></strong> using the commands <strong><em>[adb kill-server]</em></strong> followed by <strong><em>[adb start-server]</em></strong>. If the problem persists, use <strong><em>[where.exe adb]</em></strong> to verify that no other <strong><em>[adb]</em></strong>, of a different version (such as that of a previous SDK, for example), is present in the [PATH].</p>
+<p>[Note]: If <strong><em>[adb devices]</em></strong> displays <strong><em>[offline]</em></strong> instead of <strong><em>[device]</em></strong>, the emulator has not finished starting up, or <strong><em>[adb]</em></strong> is in an inconsistent state. Wait for the welcome screen, then, if necessary, restart <strong><em>[adb]</em></strong> using the commands <strong><em>[adb kill-server]</em></strong> followed by <strong><em>[adb start-server]</em></strong>. If the problem persists, use <strong><em>[where.exe adb]</em></strong> to verify that no other <strong><em>[adb]</em></strong>, of a different version (such as that of a previous SDK, for example), is present in the [PATH].</p>
 <h3 id="241-preparing-the-android-phone">2.4.1. <span style="color: #1f4d78">Preparing the Android Phone</span></h3>
 <p>To run the app on a real Android phone, the phone must be set to allow control from the computer:</p>
 <ul>
-<li>enable developer options: open [Paramètres / À propos du téléphone], then tap [Numéro de build] several times (usually 7) until the phone indicates that you are a developer. The exact labels vary by manufacturer;</li>
-<li>enable [Débogage USB] in the [Options pour les développeurs] menu (added in the previous step);</li>
+<li>enable developer options: open [Settings / About phone], then tap [Build number] several times (usually 7) until the phone indicates that you are a developer. The exact labels vary by manufacturer;</li>
+<li>enable [USB debugging] in the [Developer options] menu (added in the previous step);</li>
 <li>Connect the phone to the computer using a USB cable that transfers data (not just charges the phone), and accept the USB debugging authorization request on the phone. On Windows, if the phone is not recognized, install the manufacturer’s driver USB (“OEM USB drivers,” see [https://developer.android.com/studio/run/oem-usb]);</li>
 <li>check that the phone appears in the list displayed by <strong><em>[adb devices]</em></strong>.</li>
 </ul>

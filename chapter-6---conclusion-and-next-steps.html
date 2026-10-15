@@ -636,16 +636,16 @@
 <h2 id="71-what-was-built">7.1. <span style="color: #2e74b5">What Was Built</span></h2>
 <p>This document has ported the core functionality and authentication of the <em>[RdvMedecins]</em> application from the original 2014 document to a native Android app:</p>
 <ul>
-  <li>a complete <i>[NestJS]</i> server (the same as in the Angular, React, Vue.js, and Flutter versions of the course, installed and tested in Chapter 2 but whose code is not covered here), exposing the same business routes JSON as the original Spring 4 server, all protected by a token JWT;
+  <li>a complete <i>[NestJS]</i> server (the same as in the Angular, React, Vue.js, and Flutter versions of the course, installed and tested in Chapter 2 but whose code is not covered here), exposing the same JSON business routes as the original Spring 4 server, all protected by a JWT token;
   </li>
-  <li>an Android client written in <i>[Kotlin] </i>using <i>[Jetpack Compose] </i>(Material 3) offering the same features as the original AngularJS 1.x client—selecting a doctor and a date, viewing the calendar, booking and canceling an appointment—supplemented by a login screen, a persistent session (<i><b>[SharedPreferences]</b></i>), an interface tailored to the logged-in user’s role, and the ability to switch the interface between French and English (<i>[TranslationsService]</i>, with dictionaries for the other language variants).
+  <li>an Android client written in <i>[Kotlin] </i>using <i>[Jetpack Compose] </i>(Material 3) offering the same features as the original AngularJS 1.x client—selecting a doctor and a date, viewing the schedule, booking and canceling an appointment—supplemented by a login screen, a persistent session (<i><b>[SharedPreferences]</b></i>), an interface tailored to the logged-in user’s role, and the ability to switch the interface between French and English (<i>[TranslationsService]</i>, with the dictionaries from the other variants of the course).
   </li>
 </ul>
 
 <p>This client replicates the Flutter client’s architecture file by file. The most notable differences stem from the platform rather than the language: the recreation of the activity when the screen rotates, which requires <em>[ViewModel]</em> and <strong><em>[rememberSaveable]</em></strong>; the prohibition of network access on the main thread, which requires coroutines; and the manifest settings (permissions <strong><em>[INTERNET]</em></strong> and HTTP in plain text). On the interface side, Compose makes the code shorter than Flutter: functions rather than classes, and automatically observed states rather than <strong><em>[setState(...)]</em></strong> and <strong><em>[notifyListeners()]</em></strong>.</p>
 <h2 id="72-what-remains-outside-the-scope-or-needs-to-be-addressed">7.2. <span style="color: #2e74b5">What remains outside the scope or needs to be addressed</span></h2>
 <h3 id="721-frenchenglish-internationalizationcovered-in-this-document">7.2.1. <span style="color: #1f4d78">French/English internationalization—covered in this document</span></h3>
-<p>The original document proposed switching the interface between French and English using the angular-translate library. This port implements this functionality with <em>[TranslationsService]</em> (see Chapter 4) and the dictionaries <strong><em>[fr.json]/[en.json]</em></strong> for the other language variants, embedded in the application’s <strong><em>[assets/]</em></strong> folder. Like its predecessors, it switches languages on the fly, without restarting the application.</p>
+<p>The original document proposed switching the interface between French and English using the angular-translate library. This port implements this functionality with <em>[TranslationsService]</em> (see Chapter 4) and the dictionaries <strong><em>[fr.json]/[en.json] from the other variants of the course</em></strong>, embedded in the application’s <strong><em>[assets/]</em></strong> folder. Like its predecessors, it switches languages on the fly, without restarting the application.</p>
 <h3 id="722-the-clients-debug-modedeliberately-excluded-from-the-scope">7.2.2. <span style="color: #1f4d78">The client’s “debug” mode—deliberately excluded from the scope</span></h3>
 <p>The original document included a technical display mode that provided access to the raw template of the current view. This port does not recreate it: Android Studio now offers, outside the app, much more comprehensive tools—the debugger, the layout inspector ([Layout Inspector], which shows the tree of @Composable functions, their parameters, and the number of recompositions), and the log ([Logcat]).</p>
 <h3 id="723-artificial-network-delaypostponed">7.2.3. <span style="color: #1f4d78">Artificial network delay—postponed</span></h3>
@@ -656,11 +656,11 @@
 <ul>
   <li>add an appointment details screen to explore screen navigation using the <i>[Navigation Compose]</i> library;
   </li>
-  <li>display a loading indicator (<i><b>[CircularProgressIndicator]</b></i>) during server calls by adding a <i><b>[enCours]</b></i> state to <i><b>[AppViewModel]</b></i>;
+  <li>display a loading indicator (<i><b>[CircularProgressIndicator]</b></i>) during server calls by adding an [inProgress] state to <i><b>[AppViewModel]</b></i>;
   </li>
   <li>replace <i><b>[SharedPreferences] </b></i>with <i>[DataStore]</i>, the fully asynchronous API storage method currently recommended (functions <i><b>[suspend] </b></i>and <i><b>[Flow]</b></i>);
   </li>
-  <li>Write tests: unit tests for <i><b>[decoderReponse(...)] </b></i>or <i><b>[TranslationsService.t(...)]</b></i>, followed by interface tests with the <i><b>[compose-ui-test]</b></i> library;
+  <li>Write tests: unit tests for <i><b>[decodeResponse(...)] </b></i>or <i><b>[TranslationsService.t(...)]</b></i>, followed by interface tests with the <i><b>[compose-ui-test]</b></i> library;
   </li>
   <li>review the README file in each client folder: each one summarizes the purpose of the files it contains.
   </li>

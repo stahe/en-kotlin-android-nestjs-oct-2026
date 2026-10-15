@@ -611,10 +611,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#67-generate-a-apk" class="md-nav__link">
+  <a href="#67-generate-an-apk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.7. Generate a APK
+        6.7. Generate an APK
       
     </span>
   </a>
@@ -704,15 +704,15 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>adb devices                                        # the emulator must appear
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>.\gradlew.bat installDebug                          # Builds and installs the application
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>adb shell am start -n fr.rdvmedecins.client/.MainActivity   # deploys it
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>.\gradlew.bat installDebug                          # builds and installs the application
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>adb shell am start -n fr.rdvmedecins.client/.MainActivity   # launches it
 </code></pre></div></td></tr></table></div>
 <h3 id="621-the-network-pitfall-localhost-no-longer-refers-to-the-pc-development-device">6.2.1. <span style="color: #1f4d78">The network pitfall: <code>localhost</code> no longer refers to the PC development device</span></h3>
-<p>It’s LE—an important detail to know for mobile development, unrelated to Kotlin or Compose: <strong><em>[localhost]</em></strong> (or <strong><em>[127.0.0.1]</em></strong>), in the “Server URL” field, refers to the machine running the code. However, the emulator is a machine with the ID VIRTUELLE, which is distinct from the development machine with the ID PC where the server <em>[NestJS]</em> is running, even though both appear to “be on the same computer.” There are two solutions:</p>
+<p>It’s THE important detail to know for mobile development, unrelated to Kotlin or Compose: <strong><em>[localhost]</em></strong> (or <strong><em>[127.0.0.1]</em></strong>), in the “Server URL” field, refers to the machine running the code. However, the emulator is a VIRTUAL machine, distinct from the development PC where the [NestJS] server is running, even though both appear to “be on the same computer.” There are two solutions:</p>
 <ul>
-  <li>the special address <i><b>[http://10.0.2.2:8080]</b></i>: specific to the official Android emulator, it is redirected to the host machine’s <i><b>[localhost]</b></i>. This is the default value for the “URL server” field (see <i><b>[SettingsService.kt]</b></i>);
+  <li>the special address <i><b>[http://10.0.2.2:8080]</b></i>: specific to the official Android emulator, it is redirected to the host machine’s <i><b>[localhost]</b></i>. This is the default value for the “Server URL” field (see <i><b>[SettingsService.kt]</b></i>);
   </li>
-  <li>the command <i><b>[adb reverse tcp:8080 tcp:8080]</b></i>, followed by URL and <i><b>[http://localhost:8080]</b></i>. <i><b>[adb reverse] </b></i>creates a tunnel: any connection from the device to SON on port 8080 is forwarded by <i><b>[adb] </b></i>to port 8080 on the computer. The tunnel disappears when the emulator stops (or when the <i><b>[adb]</b></i> server restarts): you must then rerun the command.
+  <li>the command <i><b>[adb reverse tcp:8080 tcp:8080]</b></i>, followed by the URL [http://localhost:8080]. <i><b>[adb reverse] </b></i>creates a tunnel: any connection from the device to ITS port 8080 is forwarded by <i><b>[adb] </b></i>to port 8080 on the computer. The tunnel disappears when the emulator stops (or when the <i><b>[adb]</b></i> server restarts): you must then rerun the command.
   </li>
 </ul>
 
@@ -722,20 +722,20 @@
 <span class="normal"><a href="#__codelineno-1-3">3</a></span>
 <span class="normal"><a href="#__codelineno-1-4">4</a></span>
 <span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>W RdvMedecins: échec de la connexion
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>W RdvMedecins: login failed
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a>W RdvMedecins: java.net.SocketTimeoutException: failed to connect to /10.0.2.2 (port 8080)
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a>from /10.0.2.16 (port 56580) after 10000ms
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a>W RdvMedecins:   at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
 <a id="__codelineno-1-5" name="__codelineno-1-5"></a>...
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>W RdvMedecins:   at fr.rdvmedecins.client.core.services.AuthService$seConnecter$resultat$1.invokeSuspend(AuthService.kt:114)
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>W RdvMedecins:   at fr.rdvmedecins.client.core.services.AuthService$logIn$result$1.invokeSuspend(AuthService.kt:114)
 </code></pre></div></td></tr></table></div>
-<p>The commands <strong><em>[adb reverse]</em></strong>, URL, and <strong><em>[http://localhost:8080]</em></strong> (followed by <strong><em>[SettingsService]</em></strong>) resolved the issue: this is the configuration used for all screenshots in Chapter 4.</p>
+<p>The [adb reverse] command and the URL [http://localhost:8080] (saved by [SettingsService]) resolved the issue: this is the configuration used for all screenshots in Chapter 4.</p>
 <h2 id="63-target-phone">6.3. <span style="color: #2e74b5">Target: Phone</span></h2>
-<p>The phone set up in Chapter 1 (developer options, debugging USB) appears in <strong><em>[adb devices]</em></strong> and in the Android Studio device list: It works exactly like the emulator ([Run] or <strong><em>[gradlew installDebug]</em></strong>). Only the server’s URL changes:</p>
+<p>The phone set up in Chapter 1 (developer options, USB debugging) appears in <strong><em>[adb devices]</em></strong> and in the Android Studio device list: It works exactly like the emulator ([Run] or <strong><em>[gradlew installDebug]</em></strong>). Only the server’s URL changes:</p>
 <ul>
-  <li>phone connected via cable USB: the command <i><b>[adb reverse tcp:8080 tcp:8080] </b></i>also works with a real phone, and the URL and <i><b>[http://localhost:8080] </b></i>then reach the PC server via the cable. This is the simplest solution;
+  <li>phone connected via USB cable: the command <i><b>[adb reverse tcp:8080 tcp:8080] </b></i>also works with a real phone, and the URL [http://localhost:8080]<i><b> </b></i>then reach the PC server via the cable. This is the simplest solution;
   </li>
-  <li>Phone on the same Wi-Fi network as the PC: use the IP or LOCALE address of the PC on that network (for example, <i><b>[http://192.168.1.48:8080]</b></i>; the <i><b>[ipconfig]</b></i> command displays it in Windows), never <i><b>[localhost] </b></i>or <i><b>[10.0.2.2]</b></i>, as both refer to the phone itself in this case. The firewall on the PC must then allow incoming connections on port 8080 (Windows prompts you to do this when you first launch Node.js).
+  <li>Phone on the same Wi-Fi network as the PC: use the LOCAL IP address of the PC on that network (for example, <i><b>[http://192.168.1.48:8080]</b></i>; the <i><b>[ipconfig]</b></i> command displays it in Windows), never <i><b>[localhost] </b></i>or <i><b>[10.0.2.2]</b></i>, as both refer to the phone itself in this case. The firewall on the PC must then allow incoming connections on port 8080 (Windows prompts you to do this when you first launch Node.js).
   </li>
 </ul>
 
@@ -743,7 +743,7 @@
 <h2 id="64-two-mobile-specific-restrictions">6.4. <span style="color: #2e74b5">Two mobile-specific restrictions</span></h2>
 <h3 id="641-unencrypted-http-traffic">6.4.1. <span style="color: #1f4d78">Unencrypted HTTP traffic</span></h3>
 <p>Starting with Android 9 (API 28), by default, an app can no longer communicate in “plaintext” HTTP (<strong><em>[http://]</em></strong>, unencrypted): only <strong><em>[https://]</em></strong> is allowed. Since the server for this course listens on plain HTTP, the client’s manifest declares the <strong><em>[android:usesCleartextTraffic=&quot;true&quot;]</em></strong> exception (see Chapter 4). Without it, any request fails with the <strong><em>[CLEARTEXT communication to 10.0.2.2 not permitted by network security policy]</em></strong> exception.</p>
-<p>This authorization applies to TOUS servers. A more granular configuration is possible, using a <strong><em>[res/xml/network_security_config.xml]</em></strong> file that allows plaintext HTTP only for certain hostnames:</p>
+<p>This authorization applies to ALL servers. A more granular configuration is possible, using a <strong><em>[res/xml/network_security_config.xml]</em></strong> file that allows plaintext HTTP only for certain hostnames:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
@@ -762,27 +762,27 @@
 <h3 id="642-network-access-permission">6.4.2. <span style="color: #1f4d78">Network access permission</span></h3>
 <p>Without the <strong><em>[&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;]</em></strong> line in the manifest, the first request fails, throwing a <strong><em>[SocketException: socket failed: EPERM (Operation not permitted)]</em></strong> exception (or <strong><em>a [SecurityException: Permission denied (missing INTERNET permission?)] exception</em></strong> when the URL contains a hostname). This is a common oversight: the Android Studio project template does not include it.</p>
 <h2 id="65-screen-rotation">6.5. <span style="color: #2e74b5">Screen rotation</span></h2>
-<p>Rotating the phone (or the emulator, using the rotation buttons on its sidebar) triggers DÉTRUIT and then RECRÉE in the activity (see Chapter 3). The client handles this thanks to three choices made in Chapter 4:</p>
+<p>Rotating the phone (or the emulator, using the rotation buttons on its sidebar) DESTROYS and then RECREATES the activity (see Chapter 3). The client handles this thanks to three choices made in Chapter 4:</p>
 <ul>
   <li>the services are built by <i><b>[RdvMedecinsApplication]</b></i>, which is not recreated;
   </li>
-  <li>the screen state (doctors, patients, calendar, slot currently being booked) is stored in <i><b>[AppViewModel]</b></i>, which Android retains;
+  <li>the screen state (doctors, patients, schedule, slot currently being booked) is stored in <i><b>[AppViewModel]</b></i>, which Android retains;
   </li>
   <li>minor interface states (login being entered, selected doctor and day, patient selected in the dialog box) are stored in <i><b>[rememberSaveable]</b></i>.
   </li>
 </ul>
 
-<p>The following screenshots were taken with the booking dialog box open: first in landscape mode, then back in portrait mode. The dialog box, the calendar, and the selected doctor and day are still there:</p>
+<p>The following screenshots were taken with the booking dialog box open: first in landscape mode, then back in portrait mode. The dialog box, the schedule, and the selected doctor and day are still there:</p>
 <p><img src="images/10000000000004B00000021C42A7CD86.png" width="491" height="221" style="width:13cm;height:5.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004B00000021C42A7CD86.png" /></p>
 <p><img src="images/100000000000021C000004B075B984CE.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B075B984CE.png" /></p>
 <p>In landscape mode, the screen is over 600 dp wide: the title bar displays the full title and the user’s name, and <strong><em>[DoctorDayPicker]</em></strong> arranges its three elements on a single line:</p>
 <p><img src="images/10000000000004B00000021C4664ADD5.png" width="491" height="221" style="width:13cm;height:5.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004B00000021C4664ADD5.png" /></p>
-<p>To assess the value of these choices, we can try the opposite: in <strong><em>[App.kt]</em></strong>, replace <strong><em>[val vm = viewModel { AppViewModel(auth, rdv) }]</em></strong> with <strong><em>[val vm = remember { AppViewModel(auth, rdv) }]</em></strong>. After a rotation, the calendar disappears and the search must be performed again: <strong><em>[remember]</em></strong> does not survive the recreation of the activity.</p>
+<p>To assess the value of these choices, we can try the opposite: in <strong><em>[App.kt]</em></strong>, replace <strong><em>[val vm = viewModel { AppViewModel(auth, api) }]</em></strong> with <strong><em>[val vm = remember { AppViewModel(auth, api) }]</em></strong>. After a rotation, the schedule disappears and the search must be performed again: <strong><em>[remember]</em></strong> does not survive the recreation of the activity.</p>
 <h2 id="66-a-narrow-screen-the-layout-trap">6.6. <span style="color: #2e74b5">A narrow screen: the layout trap</span></h2>
-<p>A phone in portrait mode is only about 400 dp wide. The first version of <strong><em>[AgendaView.kt]</em></strong>, like that of the Flutter client, was tripped up by this width. Each row of the calendar divided the available width among its three columns with fixed weights—30% for the time, 45% for the status, and 25% for the button (<strong><em>[Modifier.weight(0.25f)]</em></strong>). On the phone, 25% of the row wasn’t enough for the label “Reserve,” which was truncated to “Res”:</p>
+<p>A phone in portrait mode is only about 400 dp wide. The first version of <strong><em>[ScheduleView.kt]</em></strong>, like that of the Flutter client, was tripped up by this width. Each row of the schedule divided the available width among its three columns with fixed weights—30% for the time, 45% for the status, and 25% for the button (<strong><em>[Modifier.weight(0.25f)]</em></strong>). On the phone, in the French interface, 25% of the row wasn’t enough for the label “Réserver,” which was truncated to “Rése”:</p>
 <p><img src="images/100000000000021C000004B0000F4C9B.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B0000F4C9B.png" /></p>
 <p><img src="images/100000000000021C000004B0FF3464ED.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B0FF3464ED.png" /></p>
-<p>The correction (screenshot on the right; see <strong><em>[AgendaView.kt]</em></strong> in Chapter 4): the button no longer has a weight and takes up the width of its text; the schedule has a fixed width; the status takes up the remaining width (<strong><em>[Modifier.weight(1f)]</em></strong>). Two rules follow from this, the same as for the Flutter client:</p>
+<p>The correction (screenshot on the right; see <strong><em>[ScheduleView.kt]</em></strong> in Chapter 4): the button no longer has a weight and takes up the width of its text; the time has a fixed width; the status takes up the remaining width (<strong><em>[Modifier.weight(1f)]</em></strong>). Two rules follow from this, the same as for the Flutter client:</p>
 <ul>
   <li>Never assume a width: either let an element take on the size of its content, or check the actual available width (<i><b>[BoxWithConstraints]</b></i>, <i><b>[LocalConfiguration.current.screenWidthDp]</b></i>) to choose a layout;
   </li>
@@ -790,17 +790,17 @@
   </li>
 </ul>
 
-<h2 id="67-generate-a-apk">6.7. <span style="color: #2e74b5">Generate a APK</span></h2>
+<h2 id="67-generate-an-apk">6.7. <span style="color: #2e74b5">Generate an APK</span></h2>
 <p><strong><em>[gradlew assembleDebug]</em></strong> (Chapter 1) generates <strong><em>[app/build/outputs/apk/debug/app-debug.apk]</em></strong>, a “debug” app: signed with a development key automatically generated by Android Studio, it can be installed on an emulator or a phone (<strong><em>[adb install app-debug.apk]</em></strong>), but cannot be published on the Play Store. For actual distribution:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>.\gradlew.bat assembleRelease    # APK production: app/build/outputs/apk/release/
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>.\gradlew.bat assembleRelease    # production APK: app/build/outputs/apk/release/
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a>.\gradlew.bat bundleRelease      # Android App Bundle (.aab), the format required by the Play Store
 </code></pre></div></td></tr></table></div>
 <p>A production version must be signed with a personal key, created once and for all and kept safe: Android Studio provides the [Build / Generate Signed App Bundle or APK...] menu for this purpose. The Play Store also requires an icon, a privacy policy... and a server at <strong><em>[https://]</em></strong>.</p>
 <h2 id="68-but-what-about-iosdesktop-and-web-apps-kotlin-multiplatform">6.8. <span style="color: #2e74b5">But what about iOS—desktop and web apps? Kotlin Multiplatform</span></h2>
-<p>The Flutter client in the course generated mobile, desktop, and web apps from a single codebase. The equivalent exists in the Kotlin ecosystem: <em>[Kotlin Multiplatform]</em> (KMP) allows you to share Kotlin code between Android, iOS, desktop (JVM), and the web, while <em>[Compose Multiplatform]</em>, derived from JetBrains, extends Jetpack Compose to these same targets. Porting the client in this document would primarily involve replacing Android-specific libraries with cross-platform equivalents:</p>
+<p>The Flutter client in the course generated mobile, desktop, and web apps from a single codebase. The equivalent exists in the Kotlin ecosystem: <em>[Kotlin Multiplatform]</em> (KMP) allows you to share Kotlin code between Android, iOS, desktop (JVM), and the web, while <em>[Compose Multiplatform]</em>, from JetBrains, extends Jetpack Compose to these same targets. Porting the client in this document would primarily involve replacing Android-specific libraries with cross-platform equivalents:</p>
 <ul>
-  <li><i>[OkHttp] </i>→ <i>[Ktor Client]</i>, the cross-platform client HTTP derived from JetBrains;
+  <li><i>[OkHttp] </i>→ <i>[Ktor Client]</i>, the cross-platform HTTP client from JetBrains;
   </li>
   <li><i><b>[SharedPreferences] </b></i>→ a cross-platform key-value storage library (for example, <i>[DataStore]</i>, which is now cross-platform);
   </li>
@@ -815,11 +815,11 @@
 <p>@Composable functions, the <strong><em>[@Serializable]</em></strong> classes, coroutines, and even the ViewModel (available on multiplatform) would be retained almost as-is. This port is beyond the scope of this document.</p>
 <h2 id="69-summary-table">6.9. <span style="color: #2e74b5">Summary table</span></h2>
 <ul>
-  <li>Android emulator - [Run] or <i><b>[gradlew installDebug]</b></i> - URL from the server: <i><b>[http://10.0.2.2:8080]</b></i>, or <i><b>[adb reverse tcp:8080 tcp:8080] </b></i>followed by <i><b>[http://localhost:8080]</b></i>;
+  <li>Android emulator - [Run] or <i><b>[gradlew installDebug]</b></i> - Server URL: <i><b>[http://10.0.2.2:8080]</b></i>, or <i><b>[adb reverse tcp:8080 tcp:8080] </b></i>followed by <i><b>[http://localhost:8080]</b></i>;
   </li>
-  <li>landline phone USB - [Run] or <i><b>[gradlew installDebug]</b></i> - URL: <i><b>[adb reverse tcp:8080 tcp:8080], </b></i>then <i><b>[http://localhost:8080]</b></i>;
+  <li>USB phone - [Run] or <i><b>[gradlew installDebug]</b></i> - URL: <i><b>[adb reverse tcp:8080 tcp:8080], </b></i>then <i><b>[http://localhost:8080]</b></i>;
   </li>
-  <li>Wi-Fi phone - [Run] or <i><b>[gradlew installDebug]</b></i> - URL: local address IP of PC, port 8080 open in the firewall;
+  <li>Wi-Fi phone - [Run] or <i><b>[gradlew installDebug]</b></i> - URL: local IP address of the PC, port 8080 open in the firewall;
   </li>
   <li>in all cases: <i><b>[INTERNET]</b></i> permission and authorization for HTTP in plain text in the manifest;
   </li>
