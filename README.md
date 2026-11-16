@@ -8,7 +8,7 @@ This repository corresponds to the course **"A Client/Server Example - Kotlin An
 
 This document adapts the educational app **RdvMedecins** (a doctor’s appointment scheduling app), which has already been covered in courses on Angular, React, Vue.js, and Flutter, into a native Android app. It presents an **Android** version here: a client written in **Kotlin** using **Jetpack Compose** (Material 3), which relies on a **NestJS** (TypeScript) server exposing a JSON API protected by JWT authentication (ADMIN / USER roles).
 
-This document provides a step-by-step guide following the progression of the course [An Example Client/Server - Flutter / NestJS (2026)](https://stahe.github.io/en-flutter-nestjs-sept-2026/), from which it borrows the server, the database, and the client architecture: each Jetpack Compose concept is linked to its Flutter equivalent. The basics of the Kotlin language are covered in the [Kotlin course](https://stahe.github.io/kotlin-oct-2026/).
+This document provides a step-by-step guide following the progression of the course [An Example Client/Server - Flutter / NestJS (2026)](https://stahe.github.io/en-flutter-nestjs-sept-2026/), from which it borrows the server, the database, and the client architecture: each Jetpack Compose concept is linked to its Flutter equivalent. The basics of the Kotlin language are covered in the [Kotlin course](https://stahe.github.io/en-kotlin-oct-2026/).
 
 The course covers:
 
